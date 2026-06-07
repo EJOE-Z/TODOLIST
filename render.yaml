@@ -1,0 +1,15 @@
+# Render.com 一键部署：https://render.com
+# 在 Dashboard 连接 Git 仓库后，Render 会读取此文件
+services:
+  - type: web
+    name: todo-assistant
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ZHIPU_API_KEY
+        sync: false
+      - key: ZHIPU_MODEL
+        value: glm-4-flash
+      - key: FLASK_DEBUG
+        value: "0"

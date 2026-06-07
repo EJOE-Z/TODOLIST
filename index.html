@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能TODO清单</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                        danger: '#ef4444',
+                        warning: '#f59e0b',
+                        info: '#6366f1',
+                        light: '#f0f4f8',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TODO助手">
+    <link rel="apple-touch-icon" href="/icons/icon.svg">
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="app-body">
+    <div class="min-h-screen flex flex-col">
+        <header class="app-header">
+            <div class="container mx-auto px-4 md:px-6 py-3">
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 flex-shrink-0">
+                        <div class="app-logo">
+                            <i class="fa fa-check-square-o"></i>
+                        </div>
+                        <div>
+                            <h1 class="app-title">智能 TODO 清单</h1>
+                            <p class="app-subtitle">AI 驱动 · 智能管理</p>
+                        </div>
+                    </div>
+                    <nav id="tab-nav" class="app-nav hidden md:flex" aria-label="主导航">
+                        <button type="button" data-tab="ai-assistant" class="nav-tab nav-tab-active" aria-selected="true">
+                            <i class="fa fa-comments"></i><span>助手</span>
+                        </button>
+                        <button type="button" data-tab="tasks" class="nav-tab" aria-selected="false">
+                            <i class="fa fa-tasks"></i><span>任务</span>
+                        </button>
+                        <button type="button" data-tab="schedule" class="nav-tab" aria-selected="false">
+                            <i class="fa fa-table"></i><span>课表</span>
+                        </button>
+                        <button type="button" data-tab="calendar" class="nav-tab" aria-selected="false">
+                            <i class="fa fa-calendar"></i><span>日历</span>
+                        </button>
+                        <button type="button" data-tab="statistics" class="nav-tab" aria-selected="false">
+                            <i class="fa fa-bar-chart"></i><span>统计</span>
+                        </button>
+                    </nav>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <span id="header-current-user" class="hidden md:inline text-sm text-gray-500 max-w-[8rem] truncate" title=""></span>
+                        <button id="theme-toggle" type="button" class="icon-btn" title="切换主题">
+                            <i class="fa fa-moon-o"></i>
+                        </button>
+                        <button id="settings-btn" type="button" class="icon-btn" title="设置">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav id="tab-nav-mobile" class="app-nav app-nav-mobile md:hidden container mx-auto px-4 pb-2" aria-label="移动端导航">
+            <button type="button" data-tab="ai-assistant" class="nav-tab nav-tab-active" aria-selected="true">
+                <i class="fa fa-comments"></i><span>助手</span>
+            </button>
+            <button type="button" data-tab="tasks" class="nav-tab" aria-selected="false">
+                <i class="fa fa-tasks"></i><span>任务</span>
+            </button>
+            <button type="button" data-tab="schedule" class="nav-tab" aria-selected="false">
+                <i class="fa fa-table"></i><span>课表</span>
+            </button>
+            <button type="button" data-tab="calendar" class="nav-tab" aria-selected="false">
+                <i class="fa fa-calendar"></i><span>日历</span>
+            </button>
+            <button type="button" data-tab="statistics" class="nav-tab" aria-selected="false">
+                <i class="fa fa-bar-chart"></i><span>统计</span>
+            </button>
+        </nav>
+
+        <main class="flex-grow container mx-auto px-4 md:px-6 py-6 md:py-8">
+                <div class="tab-content">
+                    <div id="ai-assistant" class="tab-pane active">
+                        <div class="app-panel fade-in">
+                            <div class="app-panel-header">
+                                <div class="flex items-center gap-3">
+                                    <div class="panel-icon panel-icon-ai">
+                                        <i class="fa fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="panel-title">AI 智能助手</h2>
+                                        <div class="flex items-center gap-2 mt-0.5">
+                                            <span class="status-dot pulse-animation"></span>
+                                            <span id="backend-status" class="status-label">连接中...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button id="toggle-session-panel" type="button" class="btn btn-ghost btn-sm session-toggle-btn" title="历史会话">
+                                        <i class="fa fa-history"></i>
+                                        <span class="session-toggle-label">历史</span>
+                                    </button>
+                                    <button id="new-chat-btn" type="button" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-plus"></i> 新对话
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chat-layout">
+                                <div id="session-backdrop" class="session-backdrop" aria-hidden="true"></div>
+                                <aside id="session-sidebar" class="session-sidebar">
+                                    <div class="session-sidebar-header">
+                                        <span>历史会话</span>
+                                        <span id="session-count" class="session-count">0</span>
+                                    </div>
+                                    <div id="session-list" class="session-list scrollbar-thin"></div>
+                                </aside>
+                                <div class="chat-main scrollbar-thin">
+                                    <div id="chat-history" class="chat-history scrollbar-thin"></div>
+                                    <div class="chat-input-area">
+                                        <div class="chat-input-row">
+                                            <button id="voice-input-btn" type="button" class="chat-voice-btn" title="点击开始语音输入" aria-pressed="false">
+                                                <i class="fa fa-microphone"></i>
+                                            </button>
+                                            <div class="chat-input-wrap">
+                                                <input type="text" id="chat-input" class="chat-input" placeholder="输入你的问题，让我来帮你…">
+                                                <button id="send-message" type="button" class="chat-send-btn" title="发送">
+                                                    <i class="fa fa-paper-plane"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <aside class="quick-sidebar">
+                                    <div class="quick-sidebar-header">⚡ 快捷命令</div>
+                                    <div class="quick-sidebar-body">
+                                        <button type="button" class="quick-command qc-briefing" data-command="今日简报">
+                                            <i class="fa fa-sun-o"></i><span>今日简报</span>
+                                        </button>
+                                        <button type="button" class="quick-command qc-schedule" data-command="今天有什么安排">
+                                            <i class="fa fa-calendar-o"></i><span>今日安排</span>
+                                        </button>
+                                        <button type="button" class="quick-command qc-plan" data-command="帮我安排今天">
+                                            <i class="fa fa-list-alt"></i><span>安排今天</span>
+                                        </button>
+                                        <button type="button" class="quick-command qc-create" data-command="创建任务">
+                                            <i class="fa fa-plus-circle"></i><span>创建任务</span>
+                                        </button>
+                                        <button type="button" class="quick-command qc-focus" data-command="开始专注">
+                                            <i class="fa fa-clock-o"></i><span>开始专注</span>
+                                        </button>
+                                    </div>
+                                    <div class="quick-sidebar-header quick-sidebar-header-sub">💡 智能推荐 <span class="quick-sidebar-hint">随情境变化</span></div>
+                                    <div id="dynamic-suggestions" class="quick-sidebar-body quick-sidebar-dynamic"></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tasks" class="tab-pane hidden">
+                        <div class="page-toolbar">
+                            <h2 class="section-heading">任务管理</h2>
+                            <button type="button" class="back-to-assistant btn btn-outline" data-tab="ai-assistant">
+                                <i class="fa fa-arrow-left"></i>
+                                <span>返回助手</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div class="stat-card card-hover">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="stat-card-label">任务总数</p>
+                                        <p class="stat-card-value text-gray-800" id="stats-total">0</p>
+                                    </div>
+                                    <div class="stat-card-icon" style="background:var(--color-primary-soft);color:var(--color-primary)">
+                                        <i class="fa fa-tasks"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card card-hover">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="stat-card-label">待完成</p>
+                                        <p class="stat-card-value text-orange-500" id="stats-pending">0</p>
+                                    </div>
+                                    <div class="stat-card-icon" style="background:var(--color-warning-soft);color:var(--color-warning)">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card card-hover">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="stat-card-label">已完成</p>
+                                        <p class="stat-card-value text-green-500" id="stats-completed">0</p>
+                                    </div>
+                                    <div class="stat-card-icon" style="background:var(--color-success-soft);color:var(--color-success)">
+                                        <i class="fa fa-check-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card card-hover">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="stat-card-label">完成率</p>
+                                        <p class="stat-card-value text-purple-500" id="stats-rate">0%</p>
+                                    </div>
+                                    <div class="stat-card-icon" style="background:rgba(124,58,237,0.12);color:#7c3aed">
+                                        <i class="fa fa-percent"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-card mb-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-semibold text-gray-700">📈 今日任务进度</h3>
+                                <span class="text-sm text-gray-500" id="today-date"></span>
+                            </div>
+                            <div class="relative">
+                                <div class="progress-track">
+                                    <div id="progress-bar" class="progress-fill" style="width:0%"></div>
+                                </div>
+                                <div class="flex justify-between mt-2 text-sm">
+                                    <span class="text-gray-500">已完成 <span id="progress-hint" class="text-gray-400"></span></span>
+                                    <span class="text-gray-700 font-medium" id="progress-text">0/0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end mb-6 gap-2 flex-wrap">
+                            <button id="open-all-diaries-from-tasks" type="button" class="btn btn-outline">
+                                <i class="fa fa-book mr-1"></i> 全部日记
+                            </button>
+                            <button id="open-create-task-from-tasks" type="button" class="btn btn-primary">
+                                <i class="fa fa-plus mr-1"></i> 创建任务
+                            </button>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h2 class="text-lg font-semibold mb-3 flex items-center">
+                                    <i class="fa fa-clock-o text-warning mr-2"></i>
+                                    待办任务
+                                </h2>
+                                <div id="todo-tasks" class="space-y-3">
+                                </div>
+                            </div>
+
+                            <div>
+                                <h2 class="text-lg font-semibold mb-3 flex items-center">
+                                    <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                    已完成任务
+                                </h2>
+                                <div id="completed-tasks" class="space-y-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="schedule" class="tab-pane hidden">
+                        <div class="page-toolbar">
+                            <h2 class="section-heading">课程表</h2>
+                            <button type="button" class="back-to-assistant btn btn-outline" data-tab="ai-assistant">
+                                <i class="fa fa-arrow-left"></i>
+                                <span>返回助手</span>
+                            </button>
+                        </div>
+                        <div class="content-card">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-lg font-semibold">我的课程表</h2>
+                                <div class="flex space-x-2">
+                                    <button id="add-course-btn" class="btn btn-primary">
+                                        <i class="fa fa-plus mr-1"></i>添加课程
+                                    </button>
+                                    <button id="import-schedule-btn" class="btn btn-outline">
+                                        <i class="fa fa-upload mr-1"></i>导入课程表
+                                    </button>
+                                    <button id="time-settings-btn" class="btn btn-outline">
+                                        <i class="fa fa-clock-o mr-1"></i>时间设置
+                                    </button>
+                                    <input type="file" id="schedule-file-input" accept=".json,.txt,.pdf" class="hidden">
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4">支持 JSON、TXT（CSV 或「周一 1-2节 课程名 地点」）、PDF（需启动后端并配置 AI）</p>
+
+                            <div class="mb-4 flex items-center justify-center gap-4 flex-wrap">
+                                <button id="prev-week-btn" class="btn btn-outline">
+                                    <i class="fa fa-chevron-left"></i>
+                                </button>
+                                <div class="flex items-center gap-2">
+                                    <span id="current-week" class="text-lg font-medium"></span>
+                                    <button id="week-settings-btn" class="btn btn-outline btn-sm" title="设置学期第一周">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </div>
+                                <button id="next-week-btn" class="btn btn-outline">
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                <button id="current-week-btn" type="button" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-calendar-check-o"></i> 本周
+                                </button>
+                            </div>
+
+                            <div class="schedule-table-wrap overflow-x-auto">
+                                <table class="schedule-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="schedule-time-header">时间</th>
+                                            <th>周一</th>
+                                            <th>周二</th>
+                                            <th>周三</th>
+                                            <th>周四</th>
+                                            <th>周五</th>
+                                            <th>周六</th>
+                                            <th>周日</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="schedule-body">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="schedule-week-stats">
+                                <h3 class="font-medium mb-2">本周课程统计</h3>
+                                <div id="week-stats" class="schedule-stats-grid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="calendar" class="tab-pane hidden">
+                        <div class="page-toolbar">
+                            <h2 class="section-heading">日历视图</h2>
+                            <button type="button" class="back-to-assistant btn btn-outline" data-tab="ai-assistant">
+                                <i class="fa fa-arrow-left"></i>
+                                <span>返回助手</span>
+                            </button>
+                        </div>
+                        <div class="content-card calendar-page">
+                            <div class="calendar-toolbar">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <button id="prev-month" type="button" class="btn btn-outline btn-sm">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </button>
+                                    <select id="year-select" class="calendar-select"></select>
+                                    <select id="month-select" class="calendar-select">
+                                        <option value="0">1月</option>
+                                        <option value="1">2月</option>
+                                        <option value="2">3月</option>
+                                        <option value="3">4月</option>
+                                        <option value="4">5月</option>
+                                        <option value="5">6月</option>
+                                        <option value="6">7月</option>
+                                        <option value="7">8月</option>
+                                        <option value="8">9月</option>
+                                        <option value="9">10月</option>
+                                        <option value="10">11月</option>
+                                        <option value="11">12月</option>
+                                    </select>
+                                    <button id="next-month" type="button" class="btn btn-outline btn-sm">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                    <button id="today-btn" type="button" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-calendar-check-o"></i> 今天
+                                    </button>
+                                    <button id="toggle-all-reminders" type="button" class="btn btn-outline btn-sm">
+                                        <i class="fa fa-bell"></i> 全部提醒
+                                    </button>
+                                    <button id="toggle-all-diaries" type="button" class="btn btn-outline btn-sm">
+                                        <i class="fa fa-book"></i> 任务日记
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="all-reminders-panel" class="all-reminders-panel hidden">
+                                <div class="all-reminders-header">
+                                    <h3>🔔 全部提醒</h3>
+                                    <p>一次性、每日与每周提醒，可在此编辑或删除</p>
+                                </div>
+                                <div id="all-reminders-list" class="all-reminders-list"></div>
+                            </div>
+                            <div id="all-diaries-panel" class="all-reminders-panel hidden">
+                                <div class="all-reminders-header">
+                                    <h3>📔 任务日记</h3>
+                                    <p>按时间查看全部任务日记，可与左侧日历联动</p>
+                                </div>
+                                <div class="diary-panel-toolbar">
+                                    <p class="text-sm text-gray-600">共 <strong id="diary-total-count">0</strong> 篇</p>
+                                    <label class="diary-filter-label">
+                                        <input type="checkbox" id="diary-filter-by-date" checked>
+                                        仅看选中日期
+                                    </label>
+                                    <div class="diary-search-wrap">
+                                        <i class="fa fa-search diary-search-icon"></i>
+                                        <input type="search" id="diary-search-input" class="input-field diary-search-input" placeholder="搜索日记或任务名…">
+                                    </div>
+                                </div>
+                                <div id="diary-timeline-list" class="diary-timeline-list"></div>
+                            </div>
+
+                            <div class="calendar-layout">
+                                <div id="calendar-grid" class="calendar-layout-grid"></div>
+                                <div id="day-tasks" class="calendar-layout-detail">
+                                    <h3 class="calendar-detail-title" id="day-tasks-title">选择日期查看任务</h3>
+                                    <div id="day-tasks-list"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="statistics" class="tab-pane hidden">
+                        <div class="page-toolbar">
+                            <h2 class="section-heading">学习数据</h2>
+                            <button type="button" class="back-to-assistant btn btn-outline" data-tab="ai-assistant">
+                                <i class="fa fa-arrow-left"></i>
+                                <span>返回助手</span>
+                            </button>
+                        </div>
+
+                        <div id="stats-kpi-grid" class="stats-kpi-grid mb-6"></div>
+
+                        <div id="stats-insights" class="content-card stats-insights mb-6 hidden"></div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                            <div class="content-card lg:col-span-2">
+                                <div class="stats-chart-head">
+                                    <h3 class="font-medium">近 7 日动态</h3>
+                                    <span class="stats-chart-sub">每日完成任务 & 专注分钟</span>
+                                </div>
+                                <div class="h-72"><canvas id="weekly-activity-chart"></canvas></div>
+                            </div>
+                            <div class="content-card">
+                                <div class="stats-chart-head">
+                                    <h3 class="font-medium">待办健康度</h3>
+                                    <span class="stats-chart-sub">截止与推进状态</span>
+                                </div>
+                                <div class="h-72"><canvas id="health-chart"></canvas></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div class="content-card">
+                                <div class="stats-chart-head">
+                                    <h3 class="font-medium">完成耗时 TOP</h3>
+                                    <span class="stats-chart-sub">创建 → 完成</span>
+                                </div>
+                                <div class="h-64"><canvas id="time-chart"></canvas></div>
+                            </div>
+                            <div class="content-card">
+                                <div class="stats-chart-head">
+                                    <h3 class="font-medium">专注投入 TOP</h3>
+                                    <span class="stats-chart-sub">番茄钟累计</span>
+                                </div>
+                                <div class="h-64"><canvas id="focus-top-chart"></canvas></div>
+                            </div>
+                        </div>
+
+                        <div class="content-card">
+                            <div class="stats-chart-head">
+                                <h3 class="font-medium">待办清单快照</h3>
+                                <span class="stats-chart-sub">需要关注的任务</span>
+                            </div>
+                            <div id="stats-task-snapshot" class="stats-task-snapshot"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <div class="container mx-auto px-4">
+                <p class="app-footer-text">© 2026 智能 TODO 清单 · 提升效率，掌控生活</p>
+            </div>
+        </footer>
+    </div>
+
+    <div id="subtask-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">添加子任务</h3>
+                <button id="close-subtask-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="subtask-title" class="block text-sm font-medium text-gray-700 mb-1">子任务标题</label>
+                    <input type="text" id="subtask-title" class="input-field" placeholder="输入子任务标题">
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancel-subtask" class="btn btn-outline">取消</button>
+                    <button id="add-subtask" class="btn btn-primary">添加子任务</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="diary-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-lg w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold" id="diary-modal-title">写日记</h3>
+                <button id="close-diary-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div id="diary-history-list" class="diary-history-list hidden"></div>
+                <div>
+                    <label for="diary-content" class="block text-sm font-medium text-gray-700 mb-1">写日记</label>
+                    <textarea id="diary-content" class="input-field h-32" placeholder="记录你对这个任务的想法、进展或感受…"></textarea>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancel-diary" class="btn btn-outline">取消</button>
+                    <button id="save-diary" class="btn btn-primary">保存日记</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="time-settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="time-settings-modal-panel">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">节次时间设置</h3>
+                <button type="button" id="close-time-settings-modal" class="modal-close-btn" title="关闭">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 mb-3">设置每节课的开始和结束时间：</p>
+            <div id="time-settings-content" class="time-settings-content"></div>
+            <div class="flex justify-end flex-wrap gap-2 pt-4 mt-4 border-t border-gray-200">
+                <button id="cancel-time-settings" type="button" class="btn btn-outline">取消</button>
+                <button id="reset-time-settings" type="button" class="btn btn-outline">恢复默认</button>
+                <button id="save-time-settings" type="button" class="btn btn-primary">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-course-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold" id="course-modal-title">添加课程</h3>
+                <button id="close-course-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="course-name" class="block text-sm font-medium text-gray-700 mb-1">课程名称</label>
+                    <input type="text" id="course-name" class="input-field" placeholder="例如：高等数学">
+                </div>
+                <div>
+                    <label for="course-day" class="block text-sm font-medium text-gray-700 mb-1">上课星期</label>
+                    <select id="course-day" class="input-field">
+                        <option value="1">周一</option>
+                        <option value="2">周二</option>
+                        <option value="3">周三</option>
+                        <option value="4">周四</option>
+                        <option value="5">周五</option>
+                        <option value="6">周六</option>
+                        <option value="0">周日</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="course-start" class="block text-sm font-medium text-gray-700 mb-1">开始节次</label>
+                        <select id="course-start" class="input-field">
+                            <option value="1">第1节 (08:00)</option>
+                            <option value="2">第2节 (08:50)</option>
+                            <option value="3">第3节 (09:50)</option>
+                            <option value="4">第4节 (10:40)</option>
+                            <option value="5">第5节 (11:30)</option>
+                            <option value="6">第6节 (13:30)</option>
+                            <option value="7">第7节 (14:20)</option>
+                            <option value="8">第8节 (15:20)</option>
+                            <option value="9">第9节 (16:10)</option>
+                            <option value="10">第10节 (17:00)</option>
+                            <option value="11">第11节 (18:30)</option>
+                            <option value="12">第12节 (19:20)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="course-end" class="block text-sm font-medium text-gray-700 mb-1">结束节次</label>
+                        <select id="course-end" class="input-field">
+                            <option value="1">第1节 (08:45)</option>
+                            <option value="2">第2节 (09:35)</option>
+                            <option value="3">第3节 (10:35)</option>
+                            <option value="4">第4节 (11:25)</option>
+                            <option value="5">第5节 (12:15)</option>
+                            <option value="6">第6节 (14:15)</option>
+                            <option value="7">第7节 (15:05)</option>
+                            <option value="8">第8节 (16:05)</option>
+                            <option value="9">第9节 (16:55)</option>
+                            <option value="10">第10节 (17:45)</option>
+                            <option value="11">第11节 (19:15)</option>
+                            <option value="12">第12节 (20:05)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="course-location" class="block text-sm font-medium text-gray-700 mb-1">上课地点</label>
+                    <input type="text" id="course-location" class="input-field" placeholder="例如：教学楼A101">
+                </div>
+                <div>
+                    <label for="course-teacher" class="block text-sm font-medium text-gray-700 mb-1">授课教师</label>
+                    <input type="text" id="course-teacher" class="input-field" placeholder="例如：张老师">
+                </div>
+                <div>
+                    <label for="course-color" class="block text-sm font-medium text-gray-700 mb-1">课程颜色</label>
+                    <input type="color" id="course-color" class="w-full h-10 rounded cursor-pointer" value="#3b82f6">
+                </div>
+                <div class="flex justify-end space-x-2 pt-4">
+                    <button id="cancel-course" class="btn btn-outline">取消</button>
+                    <button id="save-course" class="btn btn-primary">保存课程</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="course-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold" id="course-detail-title">课程详情</h3>
+                <button id="close-course-detail-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="course-detail-content">
+            </div>
+        </div>
+    </div>
+
+    <div id="reminder-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">设置提醒</h3>
+                <button id="close-reminder-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="reminder-time" class="block text-sm font-medium text-gray-700 mb-1">提醒时间</label>
+                    <input type="datetime-local" id="reminder-time" class="input-field">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">提醒方式</label>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="reminder-browser" class="mr-2" checked>
+                            <label for="reminder-browser">浏览器通知</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="reminder-sound" class="mr-2" checked>
+                            <label for="reminder-sound">声音提醒</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancel-reminder" class="btn btn-outline">取消</button>
+                    <button id="save-reminder" class="btn btn-primary">保存设置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑提醒弹窗 -->
+    <div id="reminder-edit-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[120] hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">编辑提醒</h3>
+                <button type="button" id="close-reminder-edit-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="reminder-edit-title" class="block text-sm font-medium text-gray-700 mb-1">提醒标题</label>
+                    <input type="text" id="reminder-edit-title" class="input-field w-full" placeholder="提醒内容">
+                </div>
+                <div>
+                    <label for="reminder-edit-repeat" class="block text-sm font-medium text-gray-700 mb-1">提醒周期</label>
+                    <select id="reminder-edit-repeat" class="input-field w-full">
+                        <option value="none">一次性</option>
+                        <option value="daily">每日重复</option>
+                        <option value="weekly">每周重复</option>
+                    </select>
+                </div>
+                <div id="reminder-edit-daily-wrap" class="hidden">
+                    <label for="reminder-edit-time-daily" class="block text-sm font-medium text-gray-700 mb-1">每日提醒时间</label>
+                    <input type="time" id="reminder-edit-time-daily" class="input-field w-full">
+                    <p class="text-xs text-gray-500 mt-1">每天到点提醒，修改后从下一次生效</p>
+                </div>
+                <div id="reminder-edit-weekly-wrap" class="hidden space-y-3">
+                    <div>
+                        <label for="reminder-edit-weekday" class="block text-sm font-medium text-gray-700 mb-1">每周</label>
+                        <select id="reminder-edit-weekday" class="input-field w-full">
+                            <option value="1">周一</option>
+                            <option value="2">周二</option>
+                            <option value="3">周三</option>
+                            <option value="4">周四</option>
+                            <option value="5">周五</option>
+                            <option value="6">周六</option>
+                            <option value="0">周日</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="reminder-edit-time-weekly" class="block text-sm font-medium text-gray-700 mb-1">提醒时间</label>
+                        <input type="time" id="reminder-edit-time-weekly" class="input-field w-full">
+                    </div>
+                </div>
+                <div id="reminder-edit-once-wrap" class="hidden">
+                    <label for="reminder-edit-time-once" class="block text-sm font-medium text-gray-700 mb-1">提醒时间</label>
+                    <input type="datetime-local" id="reminder-edit-time-once" class="input-field w-full">
+                </div>
+                <div class="flex justify-between items-center pt-1">
+                    <button type="button" id="delete-reminder-edit" class="btn btn-outline text-red-600 border-red-200 hover:bg-red-50">删除提醒</button>
+                    <div class="flex space-x-2">
+                        <button type="button" id="cancel-reminder-edit" class="btn btn-outline">取消</button>
+                        <button type="button" id="save-reminder-edit" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="week-settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">设置第一周</h3>
+                <button id="close-week-settings-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="first-week-date" class="block text-sm font-medium text-gray-700 mb-1">选择第一周的周一日期</label>
+                    <input type="date" id="first-week-date" class="input-field">
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancel-week-settings" class="btn btn-outline">取消</button>
+                    <button id="save-week-settings" class="btn btn-primary">保存设置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 创建/编辑任务模态框 -->
+    <div id="create-task-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold" id="create-task-modal-title">🎯 创建新任务</h3>
+                <button id="close-create-task-modal" type="button" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="task-modal-title" class="block text-sm font-medium text-gray-700 mb-1">任务标题</label>
+                    <input type="text" id="task-modal-title" class="input-field w-full" placeholder="请输入任务标题">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="task-modal-start-date" class="block text-sm font-medium text-gray-700 mb-1">开始日期</label>
+                        <input type="date" id="task-modal-start-date" class="input-field w-full">
+                    </div>
+                    <div>
+                        <label for="task-modal-deadline" class="block text-sm font-medium text-gray-700 mb-1">截止日期</label>
+                        <input type="date" id="task-modal-deadline" class="input-field w-full">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="task-modal-priority" class="block text-sm font-medium text-gray-700 mb-1">优先级</label>
+                        <select id="task-modal-priority" class="input-field w-full">
+                            <option value="low">🟢 低优先级</option>
+                            <option value="medium" selected>🟡 中优先级</option>
+                            <option value="high">🔴 高优先级</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="task-modal-repeat" class="block text-sm font-medium text-gray-700 mb-1">重复周期</label>
+                        <select id="task-modal-repeat" class="input-field w-full">
+                            <option value="none">不重复</option>
+                            <option value="daily">每天</option>
+                            <option value="weekly">每周</option>
+                            <option value="monthly">每月</option>
+                            <option value="yearly">每年</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="task-modal-reminder" class="block text-sm font-medium text-gray-700 mb-1">提醒时间（可选）</label>
+                    <input type="datetime-local" id="task-modal-reminder" class="input-field w-full">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">子任务（可选）</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="task-modal-subtask-input" class="input-field flex-grow" placeholder="输入子任务标题">
+                        <button type="button" id="add-task-modal-subtask" class="btn btn-outline whitespace-nowrap">
+                            <i class="fa fa-plus"></i> 添加
+                        </button>
+                    </div>
+                    <ul id="task-modal-subtask-list" class="mt-2 space-y-1"></ul>
+                </div>
+            </div>
+            <div class="flex justify-end space-x-2 mt-6">
+                <button type="button" id="cancel-create-task" class="btn btn-outline">取消</button>
+                <button type="button" id="confirm-create-task" class="btn btn-primary">创建任务</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择专注任务模态框 -->
+    <div id="focus-task-picker-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[110] hidden">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">🎯 选择专注任务</h3>
+                <button id="close-focus-task-picker" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 mb-4">请选择一个任务开始 25 分钟专注：</p>
+            <div id="focus-task-list" class="space-y-2 max-h-64 overflow-y-auto"></div>
+            <div class="flex justify-end mt-4">
+                <button id="cancel-focus-task-picker" class="btn btn-outline">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 设置模态框 -->
+    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[120] hidden">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">⚙️ 设置</h3>
+                <button id="close-settings-modal" type="button" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="settings-section">
+                <h4 class="settings-label">账号</h4>
+                <p class="settings-desc">不同账号的数据相互隔离（任务、课表、提醒、记忆）</p>
+                <div class="settings-account-row">
+                    <span>当前账号：<strong id="settings-current-user">未登录</strong></span>
+                </div>
+                <div class="flex gap-2 mt-2 flex-wrap">
+                    <button id="settings-edit-profile-btn" type="button" class="btn btn-outline btn-sm hidden">修改账号资料</button>
+                    <button id="settings-switch-account-btn" type="button" class="btn btn-primary btn-sm">登录 / 切换账号</button>
+                    <button id="settings-logout-btn" type="button" class="btn btn-outline btn-sm hidden">退出登录</button>
+                </div>
+            </div>
+            <div class="settings-section mt-4">
+                <h4 class="settings-label">通知提醒</h4>
+                <p class="settings-desc">开启后，任务与提醒到期时会推送系统通知（PWA 安装后后台更可靠）</p>
+                <div class="settings-row">
+                    <span class="settings-row-label">系统通知</span>
+                    <label class="settings-switch">
+                        <input type="checkbox" id="settings-notification-toggle">
+                        <span class="settings-switch-slider"></span>
+                    </label>
+                </div>
+                <p id="settings-notification-status" class="settings-desc mt-2"></p>
+            </div>
+            <div class="settings-section mt-4">
+                <h4 class="settings-label">数据同步</h4>
+                <p class="settings-desc">导出/导入<strong>当前账号</strong>的全部数据（任务、课表、提醒、记忆）</p>
+                <div class="flex gap-2 mt-2 flex-wrap">
+                    <button id="settings-export-btn" type="button" class="btn btn-outline btn-sm">导出备份</button>
+                    <label class="btn btn-primary btn-sm cursor-pointer">
+                        导入备份
+                        <input type="file" id="settings-import-input" accept=".json" class="hidden">
+                    </label>
+                </div>
+                <button id="settings-clear-account-btn" type="button" class="btn btn-outline btn-sm settings-danger-btn mt-3">清空当前账号数据</button>
+                <p class="settings-desc mt-1">不可恢复，清空前请先导出备份</p>
+            </div>
+            <div class="settings-section mt-4">
+                <h4 class="settings-label">助手记忆</h4>
+                <button id="settings-clear-memory-btn" type="button" class="btn btn-outline btn-sm">清除长期记忆</button>
+            </div>
+            <div class="settings-section mt-4">
+                <h4 class="settings-label">安装 App</h4>
+                <p class="settings-desc">部署到公网 HTTPS 后，可安装到手机主屏幕，像原生 App 一样使用</p>
+                <p id="settings-install-status" class="settings-desc mt-1"></p>
+                <button id="settings-install-app-btn" type="button" class="btn btn-primary btn-sm mt-2">安装到手机 / 桌面</button>
+                <p id="settings-install-hint" class="settings-desc mt-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 账号资料编辑弹窗 -->
+    <div id="profile-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[131] hidden">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">修改账号资料</h3>
+                <button type="button" id="close-profile-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-5">
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-800 mb-2">用户名</h4>
+                    <input type="text" id="profile-username" class="input-field w-full" placeholder="新用户名">
+                    <button type="button" id="profile-save-username-btn" class="btn btn-primary btn-sm mt-2">保存用户名</button>
+                </div>
+                <div class="border-t border-gray-100 pt-4">
+                    <h4 class="text-sm font-semibold text-gray-800 mb-1">密码</h4>
+                    <p id="profile-password-hint" class="settings-desc mb-2"></p>
+                    <div class="space-y-3">
+                        <div id="profile-old-password-wrap">
+                            <label for="profile-old-password" class="block text-sm text-gray-600 mb-1">当前密码</label>
+                            <input type="password" id="profile-old-password" class="input-field w-full" placeholder="请输入当前密码">
+                        </div>
+                        <div>
+                            <label for="profile-new-password" class="block text-sm text-gray-600 mb-1">新密码</label>
+                            <input type="password" id="profile-new-password" class="input-field w-full" placeholder="至少 4 位">
+                        </div>
+                        <div>
+                            <label for="profile-confirm-password" class="block text-sm text-gray-600 mb-1">确认新密码</label>
+                            <input type="password" id="profile-confirm-password" class="input-field w-full" placeholder="再次输入新密码">
+                        </div>
+                    </div>
+                    <button type="button" id="profile-save-password-btn" class="btn btn-primary btn-sm mt-3">保存密码</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登录/注册弹窗 -->
+    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[130] hidden">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold" id="auth-modal-title">登录账号</h3>
+                <button type="button" id="close-auth-modal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="auth-username" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
+                    <input type="text" id="auth-username" class="input-field w-full" placeholder="请输入用户名">
+                </div>
+                <div>
+                    <label for="auth-password" class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+                    <input type="password" id="auth-password" class="input-field w-full" placeholder="至少 4 位">
+                </div>
+                <div class="flex justify-between items-center gap-2">
+                    <button type="button" id="auth-toggle-mode" class="text-sm text-primary">没有账号？去注册</button>
+                    <button type="button" id="auth-submit-btn" class="btn btn-primary">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局课程表导入文件输入 -->
+    <input type="file" id="global-schedule-file-input" accept=".json,.txt,.pdf" class="hidden">
+
+    <script src="js/config.js"></script>
+    <script src="js/user-storage.js"></script>
+    <script src="js/account-manager.js"></script>
+    <script src="js/api/auth.js"></script>
+    <script src="js/notification-settings.js"></script>
+    <script src="js/date-utils.js"></script>
+    <script src="js/reminder-scheduler.js"></script>
+    <script src="js/user-memory.js"></script>
+    <script src="js/api/ai.js"></script>
+    <script src="js/api/schedule-import.js"></script>
+    <script src="js/schedule-parser.js"></script>
+    <script src="js/ai-tools.js"></script>
+    <script src="js/subtask-templates.js"></script>
+    <script src="js/course-matcher.js"></script>
+    <script src="js/task-creation-flow.js"></script>
+    <script src="js/diary-flow.js"></script>
+    <script src="js/ai-action-executor.js"></script>
+    <script src="js/planning-engine.js"></script>
+    <script src="js/plan-reschedule.js"></script>
+    <script src="js/secretary-engine.js"></script>
+    <script src="js/daily-briefing.js"></script>
+    <script src="js/reminder-manager.js"></script>
+    <script src="js/proactive-engine.js"></script>
+    <script src="js/suggestion-engine.js"></script>
+    <script src="js/settings-manager.js"></script>
+    <script src="js/pwa-install.js"></script>
+    <script src="js/diary-view.js"></script>
+    <script src="js/task-manager.js"></script>
+    <script src="js/schedule.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/statistics.js"></script>
+    <script src="js/voice-input.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
