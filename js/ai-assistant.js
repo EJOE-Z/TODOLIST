@@ -15,6 +15,8 @@ class AIAssistant {
         this.apiMessages = [];
         /** @type {Object|null} */
         this.taskDraft = null;
+        /** @type {Object|null} */
+        this.diaryDraft = null;
         this.init();
     }
 
@@ -120,6 +122,7 @@ class AIAssistant {
 
         document.getElementById('chat-history')?.addEventListener('click', (e) => {
             const btn = e.target.closest('.chat-action-btn');
+            if (!btn) return;
             if (btn.getAttribute('data-dismiss') === 'true') {
                 btn.disabled = true;
                 btn.classList.add('chat-action-btn-dismissed');
@@ -127,6 +130,7 @@ class AIAssistant {
             }
             const command = btn.getAttribute('data-command');
             if (!command) return;
+            this.submitChatCommand(command);
         });
     }
 
@@ -168,16 +172,36 @@ class AIAssistant {
             }
         } catch {
             if (statusEl) {
+                statusEl.textContent = `离线 · 无法连接 ${AppConfig.API_BASE_URL}`;
+                statusEl.title = '请确认 backend/app.py 已在 5000 端口运行';
             }
         }
     }
 
     /**
-     * 发送用户消息
+     * 聊天内快捷按钮提交（不依赖输入框）
+     * @param {string} command
      */
+    async submitChatCommand(command) {
+        await this.sendMessage(command);
+    }
+
+    /**
+     * 发送用户消息
+     * @param {string} [forcedMessage] - 快捷按钮直接传入的命令
+     */
+    async sendMessage(forcedMessage) {
         const input = document.getElementById('chat-input');
+        const message = (forcedMessage || input?.value || '').trim();
 
+        if (!message) return;
+        if (this.isProcessing) {
+            if (!AIAssistant.isImmediateLocalCommand(message)) return;
+            this.hideTypingIndicator();
+            this.isProcessing = false;
+        }
 
+        if (input && !forcedMessage) input.value = '';
         this.addMessage('user', message);
         UserMemory.recordSessionContext('user', message);
         await this.processMessage(message);
@@ -199,6 +223,9 @@ class AIAssistant {
         try {
             // 排程请求优先于「今日概览」查询（「帮我安排今天」也含「安排」二字）
             if (AIAssistant.isReschedulePlanQuery(message)) {
+                const plan = PlanRescheduleEngine.rescheduleToday();
+                const nowLabel = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+                const intro = `🔄 **已根据当前时间（${nowLabel}）重排今日计划**`;
                 const finalContent = `${intro}\n\n${SecretaryEngine.formatDailyPlanMarkdown(plan)}`;
                 this.hideTypingIndicator();
                 this.deliverDailyPlan(plan, finalContent);
@@ -240,6 +267,7 @@ class AIAssistant {
             const deleteReminderMatch = AIAssistant.parseDeleteReminderQuery(message);
             if (deleteReminderMatch && !deleteReminderMatch.confirmed) {
                 this.hideTypingIndicator();
+                this.addMessage('assistant', `确定关闭提醒「${deleteReminderMatch.query}」吗？`, {
                     confirm: {
                         confirmCommand: `确认删除提醒：${deleteReminderMatch.query}`,
                         cancelCommand: '取消'
@@ -256,6 +284,24 @@ class AIAssistant {
 
             const postponeMatch = message.match(/^推迟计划[：:\s]*(.+)$/i);
             if (postponeMatch) {
+                const parsed = PlanRescheduleEngine.parsePostponeCommand(postponeMatch[1].trim());
+                const { taskTitle, subtaskTitle } = parsed;
+                const label = subtaskTitle ? `${taskTitle} · ${subtaskTitle}` : taskTitle;
+
+                const shifted = PlanRescheduleEngine.postponeSlotMinutes(taskTitle, subtaskTitle, 30);
+                let plan;
+                if (shifted) {
+                    plan = SecretaryEngine.mergeTodaySlotsIntoPlan(SecretaryEngine.generateDailyPlan());
+                } else {
+                    if (subtaskTitle) {
+                        UserMemory.postponePlanSlot(taskTitle, subtaskTitle);
+                    } else {
+                        UserMemory.postponePlanTask(taskTitle);
+                    }
+                    plan = SecretaryEngine.generateDailyPlan();
+                }
+
+                const content = `⏭️ 已将「${label}」推迟 30 分钟，更新后的计划：\n\n${SecretaryEngine.formatDailyPlanMarkdown(plan)}`;
                 this.hideTypingIndicator();
                 this.deliverDailyPlan(plan, content);
                 return;
@@ -288,8 +334,80 @@ class AIAssistant {
 
             if (/^取消$/i.test(message.trim())) {
                 this.taskDraft = null;
+                this.diaryDraft = null;
                 this.hideTypingIndicator();
                 this.addMessage('assistant', '好的，已取消。');
+                return;
+            }
+
+            if (typeof DiaryFlow !== 'undefined') {
+                if (this.diaryDraft) {
+                    const diaryResult = DiaryFlow.advanceDraft(this.diaryDraft, message);
+                    if (diaryResult) {
+                        this.taskDraft = null;
+                        this.diaryDraft = diaryResult.clear ? null : diaryResult.draft;
+                        this.apiMessages.push({ role: 'user', content: message });
+                        this.apiMessages.push({ role: 'assistant', content: diaryResult.reply });
+                        this.hideTypingIndicator();
+                        this.addMessage('assistant', diaryResult.reply);
+                        return;
+                    }
+                } else {
+                    const diaryStart = DiaryFlow.tryStart(message);
+                    if (diaryStart) {
+                        this.taskDraft = null;
+                        this.diaryDraft = diaryStart.clear ? null : diaryStart.draft;
+                        this.apiMessages.push({ role: 'user', content: message });
+                        this.apiMessages.push({ role: 'assistant', content: diaryStart.reply });
+                        this.hideTypingIndicator();
+                        this.addMessage('assistant', diaryStart.reply);
+                        return;
+                    }
+                    if (DiaryFlow.inferDiaryFollowUp(this.apiMessages, message)) {
+                        this.taskDraft = null;
+                        this.diaryDraft = { step: 'awaiting_task', content: message.trim() };
+                        const reply = DiaryFlow.formatTaskPrompt(message.trim());
+                        this.apiMessages.push({ role: 'user', content: message });
+                        this.apiMessages.push({ role: 'assistant', content: reply });
+                        this.hideTypingIndicator();
+                        this.addMessage('assistant', reply);
+                        return;
+                    }
+                }
+            }
+
+            // 快捷指令优先于任务草稿，避免「创建任务」「开始专注」被当成标题或截止时间
+            if (typeof TaskCreationFlow !== 'undefined' && /^(创建|添加|新建).*任务$/i.test(message.trim())) {
+                this.diaryDraft = null;
+                this.taskDraft = { step: 'title' };
+                const reply = '好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。';
+                this.apiMessages.push({ role: 'user', content: message });
+                this.apiMessages.push({ role: 'assistant', content: reply });
+                this.hideTypingIndicator();
+                this.addMessage('assistant', reply);
+                return;
+            }
+
+            if (AIAssistant.isStartFocusCommand(message)) {
+                this.taskDraft = null;
+                const finalContent = this.handleStartFocusRequest(message);
+                this.apiMessages.push({ role: 'user', content: message });
+                this.apiMessages.push({ role: 'assistant', content: finalContent });
+                this.hideTypingIndicator();
+                this.addMessage('assistant', finalContent);
+                return;
+            }
+
+            if (AIAssistant.isTodayScheduleQuery(message) || AIAssistant.isBriefingQuery(message)) {
+                const scheduleResult = ActionExecutor.getTodaySchedule();
+                const finalContent = AIAssistant.isBriefingQuery(message)
+                    ? DailyBriefing.generate()
+                    : this.formatTodaySchedule(scheduleResult);
+                this.apiMessages.push({ role: 'user', content: message });
+                this.apiMessages.push({ role: 'assistant', content: finalContent });
+                this.hideTypingIndicator();
+                const isBriefing = AIAssistant.isBriefingQuery(message);
+                this.addMessage('assistant', finalContent, isBriefing ? { type: 'briefing' } : {});
                 return;
             }
 
@@ -314,6 +432,7 @@ class AIAssistant {
                             reply = result.success ? `✅ ${result.message}` : `❌ ${result.error}`;
                         }
                     } else {
+                        result = ActionExecutor.completeByQuery(taskCmd.query);
                         reply = result.success ? `✅ ${result.message}` : `❌ ${result.error}`;
                     }
                     this.apiMessages.push({ role: 'user', content: message });
@@ -325,6 +444,9 @@ class AIAssistant {
             }
 
             if (typeof TaskCreationFlow !== 'undefined' && this.taskDraft) {
+                if (AIAssistant.shouldInterruptTaskDraft(message)) {
+                    this.taskDraft = null;
+                } else {
                     const draftReply = TaskCreationFlow.advanceDraft(this, message);
                     if (draftReply !== null) {
                         this.apiMessages.push({ role: 'user', content: message });
@@ -334,6 +456,7 @@ class AIAssistant {
                         return;
                     }
                 }
+            }
 
             if (typeof TaskCreationFlow !== 'undefined') {
                 const extractedTitle = TaskCreationFlow.extractTaskTitle(message);
@@ -351,12 +474,40 @@ class AIAssistant {
                 }
             }
 
+            // 「每周三晚上五点半提醒我值班」类每周重复提醒
+            const weeklyReminder = ReminderScheduler.parseWeeklyReminderCommand(message);
+            if (weeklyReminder) {
+                const result = ActionExecutor.setReminder({
+                    title: weeklyReminder.title,
+                    repeat: 'weekly',
+                    time_of_day: weeklyReminder.time_of_day,
+                    repeat_weekday: weeklyReminder.repeat_weekday
+                });
+                const dayLabel = ReminderScheduler.WEEKDAY_LABELS[weeklyReminder.repeat_weekday];
+                const nextTime = ReminderScheduler.computeNextWeeklyTime(
+                    weeklyReminder.repeat_weekday,
+                    weeklyReminder.time_of_day
+                );
+                const finalContent = result.success
+                    ? `🔔 已设置每周提醒「${result.reminder?.title || weeklyReminder.title}」\n\n每周**${dayLabel} ${weeklyReminder.time_of_day}** 到点提醒您（下次：${nextTime.toLocaleString('zh-CN')}）`
+                    : `❌ ${result.error}`;
                 this.apiMessages.push({ role: 'user', content: message });
                 this.apiMessages.push({ role: 'assistant', content: finalContent });
                 this.hideTypingIndicator();
+                this.addMessage('assistant', finalContent);
                 return;
             }
 
+            // 「明天中午十二点要开会」类定时提醒本地处理
+            const scheduledReminder = ReminderScheduler.parseScheduledReminderCommand(message);
+            if (scheduledReminder) {
+                const result = ActionExecutor.setReminder({
+                    title: scheduledReminder.title,
+                    time: scheduledReminder.time
+                });
+                const finalContent = result.success
+                    ? `🔔 已设置提醒「${result.reminder?.title || scheduledReminder.title}」，将在 **${new Date(scheduledReminder.time).toLocaleString('zh-CN')}** 提醒您。`
+                    : `❌ ${result.error}`;
                 this.apiMessages.push({ role: 'user', content: message });
                 this.apiMessages.push({ role: 'assistant', content: finalContent });
                 this.hideTypingIndicator();
@@ -516,6 +667,28 @@ class AIAssistant {
         return /^(重排今日计划|重排计划|重新安排今天|刷新今日计划)$/.test(message.trim());
     }
 
+    /**
+     * 本地即时命令（无需等待 AI，可打断进行中的请求）
+     * @param {string} message
+     * @returns {boolean}
+     */
+    static isImmediateLocalCommand(message) {
+        const trimmed = message.trim();
+        return AIAssistant.isReschedulePlanQuery(trimmed)
+            || AIAssistant.isDailyPlanQuery(trimmed)
+            || AIAssistant.isWeeklyPlanQuery(trimmed)
+            || AIAssistant.isWeeklyReviewQuery(trimmed)
+            || AIAssistant.isListRemindersQuery(trimmed)
+            || AIAssistant.isTaskProgressQuery(trimmed)
+            || AIAssistant.isBriefingQuery(trimmed)
+            || /^推迟计划[：:\s]/.test(trimmed)
+            || /^开始专注[：:\s]/.test(trimmed)
+            || /^完成子任务[：:\s]/.test(trimmed)
+            || /^切换日历$/i.test(trimmed)
+            || /^取消$/i.test(trimmed)
+            || /^确认删除提醒[：:\s]/.test(trimmed);
+    }
+
     static isWeeklyPlanQuery(message) {
         const t = message.trim();
         return /^(这周怎么安排|本周计划|本周安排|这周安排)$/.test(t)
@@ -537,9 +710,46 @@ class AIAssistant {
      * @param {string} message
      * @returns {{ query: string, confirmed: boolean }|null}
      */
+    /**
+     * 从删除/关闭提醒指令中提取事件关键词
+     * @param {string} message
+     * @returns {string|null}
+     */
+    static extractDeleteReminderSubject(message) {
+        const trimmed = message.trim();
+        const patterns = [
+            /^确认删除提醒[：:\s]*(.+)$/i,
+            /^删除提醒[：:\s]*(.+)$/i,
+            /^(?:删除|关闭|关掉|取消|去掉|移除)(.+?)提醒$/i,
+            /^(?:删除|关闭|关掉|取消|去掉|移除)提醒[：:\s]*(.+)$/i
+        ];
+
+        for (const pattern of patterns) {
+            const match = trimmed.match(pattern);
+            if (!match?.[1]) {
+                continue;
+            }
+            let subject = match[1].trim();
+            if (typeof ActionExecutor !== 'undefined') {
+                subject = ActionExecutor.normalizeReminderQuery(subject);
+            } else if (typeof ReminderScheduler !== 'undefined') {
+                subject = ReminderScheduler.extractEventTitle(subject);
+            }
+            return subject || match[1].trim();
+        }
+
+        return null;
+    }
+
     static parseDeleteReminderQuery(message) {
+        const trimmed = message.trim();
+        const subject = AIAssistant.extractDeleteReminderSubject(trimmed);
+        if (!subject) {
             return null;
         }
+        const confirmed = /^确认删除提醒[：:\s]/i.test(trimmed);
+        return { query: subject, confirmed };
+    }
 
     static isTaskProgressQuery(message) {
         return /(.+)(进度|做到哪|怎么样了)/.test(message)
@@ -555,6 +765,27 @@ class AIAssistant {
         const trimmed = message.trim();
         return /^(开始专注|专注模式|番茄钟|开始番茄钟)$/i.test(trimmed)
             || /^(开始专注|专注)[：:\s]+\S+/i.test(trimmed);
+    }
+
+    /**
+     * 创建任务草稿进行中时，是否应中断草稿并执行快捷指令
+     * @param {string} message
+     * @returns {boolean}
+     */
+    static shouldInterruptTaskDraft(message) {
+        const trimmed = message.trim();
+        if (typeof SuggestionEngine !== 'undefined' && SuggestionEngine.QUICK_COMMANDS.has(trimmed)) {
+            return true;
+        }
+        if (/^(专注模式|番茄钟|开始番茄钟|切换日历)$/i.test(trimmed)) {
+            return true;
+        }
+        if (/^(创建|添加|新建).*任务$/i.test(trimmed)) {
+            return true;
+        }
+        return AIAssistant.isStartFocusCommand(message)
+            || AIAssistant.isTodayScheduleQuery(message)
+            || AIAssistant.isBriefingQuery(message);
     }
 
     handleStartFocusRequest(message) {
@@ -630,9 +861,48 @@ class AIAssistant {
      * @returns {Promise<string>}
      */
     async fallbackProcess(message) {
+        const deleteReminderMatch = AIAssistant.parseDeleteReminderQuery(message);
+        if (deleteReminderMatch?.confirmed) {
+            const result = ActionExecutor.deleteReminder({ reminder_query: deleteReminderMatch.query });
+            return result.success ? `✅ ${result.message}` : `❌ ${result.error}`;
+        }
+        if (deleteReminderMatch && !deleteReminderMatch.confirmed) {
+            return `确定删除提醒「${deleteReminderMatch.query}」吗？请回复：确认删除提醒：${deleteReminderMatch.query}`;
+        }
         if (/今天.*(安排|任务|课)/i.test(message)) {
             const result = ActionExecutor.getTodaySchedule();
             return this.formatTodaySchedule(result);
+        }
+        if (/^(创建|添加|新建).*任务$/i.test(message.trim())) {
+            this.diaryDraft = null;
+            this.taskDraft = { step: 'title' };
+            return '好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」，我会帮您关联课表、设置截止时间和子任务。';
+        }
+        if (typeof DiaryFlow !== 'undefined') {
+            if (this.diaryDraft) {
+                const diaryResult = DiaryFlow.advanceDraft(this.diaryDraft, message);
+                if (diaryResult) {
+                    this.taskDraft = null;
+                    this.diaryDraft = diaryResult.clear ? null : diaryResult.draft;
+                    return diaryResult.reply;
+                }
+            }
+            const diaryStart = DiaryFlow.tryStart(message);
+            if (diaryStart) {
+                this.taskDraft = null;
+                this.diaryDraft = diaryStart.clear ? null : diaryStart.draft;
+                return diaryStart.reply;
+            }
+            if (DiaryFlow.inferDiaryFollowUp(this.apiMessages, message)) {
+                this.taskDraft = null;
+                this.diaryDraft = { step: 'awaiting_task', content: message.trim() };
+                return DiaryFlow.formatTaskPrompt(message.trim());
+            }
+        }
+        if (AIAssistant.isStartFocusCommand(message)) {
+            this.taskDraft = null;
+            this.diaryDraft = null;
+            return this.handleStartFocusRequest(message);
         }
         if (typeof TaskCreationFlow !== 'undefined') {
             const taskCmd = TaskCreationFlow.parseTaskCommand(message);
@@ -648,6 +918,7 @@ class AIAssistant {
                 }
                 const result = taskCmd.action === 'delete'
                     ? ActionExecutor.deleteTask({ task_query: taskCmd.query })
+                    : ActionExecutor.completeByQuery(taskCmd.query);
                 return result.success ? `✅ ${result.message}` : `❌ ${result.error}`;
             }
         }
@@ -675,12 +946,16 @@ class AIAssistant {
                 }
             }
             if (this.taskDraft) {
+                if (AIAssistant.shouldInterruptTaskDraft(message)) {
+                    this.taskDraft = null;
+                } else {
                     const draftReply = TaskCreationFlow.advanceDraft(this, message);
                     if (draftReply !== null) {
                         return draftReply;
                     }
                 }
             }
+        }
         if (/(待办|未完成).*任务/i.test(message)) {
             const r = ActionExecutor.listTasks({ filter: 'pending' });
             return this.formatTaskList(r);
@@ -694,6 +969,22 @@ class AIAssistant {
             const s = r.statistics;
             return `📊 总任务 ${s.total}，已完成 ${s.completed}（${s.completionRate}），待办 ${s.pending}，专注 ${s.totalFocusMinutes} 分钟`;
         }
+        const weeklyReminder = ReminderScheduler.parseWeeklyReminderCommand(message);
+        if (weeklyReminder) {
+            const result = ActionExecutor.setReminder({
+                title: weeklyReminder.title,
+                repeat: 'weekly',
+                time_of_day: weeklyReminder.time_of_day,
+                repeat_weekday: weeklyReminder.repeat_weekday
+            });
+            const dayLabel = ReminderScheduler.WEEKDAY_LABELS[weeklyReminder.repeat_weekday];
+            const nextTime = ReminderScheduler.computeNextWeeklyTime(
+                weeklyReminder.repeat_weekday,
+                weeklyReminder.time_of_day
+            );
+            return result.success
+                ? `🔔 已设置每周提醒「${weeklyReminder.title}」，每周${dayLabel} ${weeklyReminder.time_of_day}（下次：${nextTime.toLocaleString('zh-CN')}）`
+                : `❌ ${result.error}`;
         }
         const quickReminder = ReminderScheduler.parseQuickReminderCommand(message);
         if (quickReminder) {
@@ -1104,6 +1395,8 @@ class AIAssistant {
     }
 
     loadOrCreateSession() {
+        this.taskDraft = null;
+        this.diaryDraft = null;
         const sessions = JSON.parse(UserStorage.getItem('chatSessions') || '[]');
         if (sessions.length > 0) {
             this.currentSessionId = sessions[sessions.length - 1].id;
@@ -1124,6 +1417,8 @@ class AIAssistant {
         this.currentSessionId = Date.now().toString();
         this.chatMessages = [];
         this.apiMessages = [];
+        this.taskDraft = null;
+        this.diaryDraft = null;
 
         const sessions = JSON.parse(UserStorage.getItem('chatSessions') || '[]');
         sessions.push({
@@ -1257,6 +1552,7 @@ class AIAssistant {
         this.currentSessionId = sessionId;
         this.chatMessages = session.messages || [];
         this.apiMessages = session.apiMessages || [];
+        this.taskDraft = null;
         this.renderSessionList();
         this.renderChatHistory();
 

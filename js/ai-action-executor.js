@@ -13,6 +13,12 @@ class ActionExecutor {
             create_task: () => ActionExecutor.createTask(args),
             update_task: () => ActionExecutor.updateTask(args),
             delete_task: () => ActionExecutor.deleteTask(args),
+            complete_task: () => {
+                if (args.task_query) {
+                    return ActionExecutor.completeByQuery(args.task_query);
+                }
+                return ActionExecutor.completeTask(args);
+            },
             list_tasks: () => ActionExecutor.listTasks(args),
             add_subtask: () => ActionExecutor.addSubtask(args),
             complete_subtask: () => ActionExecutor.completeSubtask(args),
@@ -127,7 +133,9 @@ class ActionExecutor {
     static saveTasks(tasks) {
         UserStorage.setItem('tasks', JSON.stringify(tasks));
         if (window.taskManager) {
+            window.taskManager.refreshFromStorage();
         }
+        window.diaryView?.render();
         if (window.calendar) {
             window.calendar.renderCalendar();
         }
@@ -154,11 +162,57 @@ class ActionExecutor {
         return JSON.parse(UserStorage.getItem('reminders') || '[]');
     }
 
+    /**
+     * 获取指定日期应触发的提醒（含每日/每周重复，与日历视图逻辑一致）
+     * @param {Date} date
+     * @returns {Array<Object>}
+     */
+    static getRemindersOnDate(date) {
+        const dateStr = ActionExecutor.getLocalDateString(date);
+        const day = date.getDay();
+
+        return ActionExecutor.getReminders()
+            .filter(reminder => {
+                if (reminder.repeat === 'daily' && reminder.repeatTime) {
+                    return true;
+                }
+                if (reminder.repeat === 'weekly' && reminder.repeatTime && reminder.repeatWeekday === day) {
+                    return true;
+                }
+                if (reminder.triggered) return false;
+                if (!reminder.time) return false;
+                return ActionExecutor.isSameDate(reminder.time, dateStr);
+            })
+            .sort((a, b) => {
+                const ta = a.repeatTime || (a.time ? a.time.slice(11, 16) : '99:99');
+                const tb = b.repeatTime || (b.time ? b.time.slice(11, 16) : '99:99');
+                return ta.localeCompare(tb);
+            });
+    }
+
+    /**
+     * 格式化提醒在简报中的显示时间
+     * @param {Object} reminder
+     * @returns {string}
+     */
+    static formatReminderDisplayTime(reminder) {
+        if (reminder.repeatTime) {
+            return reminder.repeatTime;
+        }
+        if (!reminder.time) return '';
+        return new Date(reminder.time).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+    }
+
     /** @param {Array<Object>} reminders */
     static saveReminders(reminders) {
         UserStorage.setItem('reminders', JSON.stringify(reminders));
         if (typeof ReminderScheduler !== 'undefined') {
             ReminderScheduler.scheduleAll();
+        }
+        if (typeof ReminderManager !== 'undefined') {
+            ReminderManager.refreshUI();
+        } else if (window.calendar) {
+            window.calendar.renderCalendar();
         }
     }
 
@@ -205,6 +259,143 @@ class ActionExecutor {
         }
 
         return null;
+    }
+
+    /**
+     * 查找与描述最匹配的未完成子任务
+     * @param {string} query
+     * @param {Array<Object>|null} [tasks]
+     * @returns {{ task: Object, subtask: Object, score: number }|null}
+     */
+    static findSubtaskMatch(query, tasks = null) {
+        const allTasks = tasks || ActionExecutor.getTasks();
+        /** 含未完成子任务的任务（父任务即使误标为已完成也参与匹配） */
+        const list = allTasks.filter((task) => {
+            const subtasks = task.subtasks || [];
+            return subtasks.length > 0 && subtasks.some(item => !item.completed);
+        });
+        const normalized = query.toLowerCase().trim().replace(/任务$/i, '').trim();
+        if (!normalized) {
+            return null;
+        }
+
+        /** @type {{ task: Object, subtask: Object, score: number }|null} */
+        let best = null;
+
+        /**
+         * @param {string} subTitle
+         * @param {string} needle
+         * @returns {number}
+         */
+        const scoreSubtaskText = (subTitle, needle) => {
+            const sub = subTitle.toLowerCase();
+            const n = needle.toLowerCase().trim();
+            if (!n || n.length < 2) {
+                return 0;
+            }
+            if (sub === n) {
+                return 100;
+            }
+            if (sub.includes(n)) {
+                return 60 + n.length;
+            }
+            if (n.includes(sub)) {
+                return 50 + sub.length;
+            }
+            return 0;
+        };
+
+        list.forEach((task) => {
+            const parentTitle = (task.title || '').toLowerCase();
+            let remainder = normalized;
+            if (parentTitle && normalized.includes(parentTitle)) {
+                remainder = normalized.replace(parentTitle, '').trim();
+            }
+
+            (task.subtasks || []).forEach((subtask) => {
+                if (subtask.completed) {
+                    return;
+                }
+
+                let score = scoreSubtaskText(subtask.title, normalized);
+                if (remainder && remainder !== normalized) {
+                    score = Math.max(score, scoreSubtaskText(subtask.title, remainder));
+                }
+
+                if (score > 0 && (!best || score > best.score)) {
+                    best = { task, subtask, score };
+                }
+            });
+        });
+
+        return best;
+    }
+
+    /**
+     * 判断是否应完成子任务而非父任务
+     * @param {string} query
+     * @returns {{ task: Object, subtask: Object }|null}
+     */
+    static resolveSubtaskCompletion(query) {
+        const match = ActionExecutor.findSubtaskMatch(query);
+        if (!match) {
+            return null;
+        }
+
+        const normalized = query.toLowerCase().trim().replace(/任务$/i, '').trim();
+        const parentTitle = (match.task.title || '').toLowerCase();
+        const subTitle = match.subtask.title.toLowerCase();
+
+        if (normalized === parentTitle) {
+            return null;
+        }
+
+        if (subTitle.includes(normalized) || normalized.includes(subTitle)) {
+            return { task: match.task, subtask: match.subtask };
+        }
+
+        if (parentTitle && normalized.includes(parentTitle)) {
+            const remainder = normalized.replace(parentTitle, '').trim();
+            if (remainder.length >= 2 && subTitle.includes(remainder)) {
+                return { task: match.task, subtask: match.subtask };
+            }
+        }
+
+        if (match.score >= 60) {
+            return { task: match.task, subtask: match.subtask };
+        }
+
+        return null;
+    }
+
+    /**
+     * 按自然语言描述完成父任务或子任务
+     * @param {string} query
+     * @returns {Object}
+     */
+    static completeByQuery(query) {
+        const subtaskTarget = ActionExecutor.resolveSubtaskCompletion(query);
+        if (subtaskTarget) {
+            return ActionExecutor.completeSubtask({
+                task_query: subtaskTarget.task.title,
+                subtask_query: subtaskTarget.subtask.title
+            });
+        }
+
+        const tasks = ActionExecutor.getTasks();
+        const parentMatch = ActionExecutor.findTask(query, tasks);
+        if (parentMatch && (parentMatch.subtasks || []).length > 0) {
+            const normalized = query.toLowerCase().trim().replace(/任务$/i, '').trim();
+            const parentTitle = (parentMatch.title || '').toLowerCase();
+            if (normalized !== parentTitle && normalized.length > parentTitle.length) {
+                return {
+                    success: false,
+                    error: `「${parentMatch.title}」还有未完成的子任务，请说明具体子任务，例如：完成子任务：${parentMatch.title} 制定复习计划`
+                };
+            }
+        }
+
+        return ActionExecutor.completeTask({ task_query: query });
     }
 
     /**
@@ -335,11 +526,15 @@ class ActionExecutor {
             task.completed = args.completed;
             if (task.completed) {
                 task.completedAt = new Date().toISOString();
+                if (typeof TaskDuration !== 'undefined') {
+                    TaskDuration.applyToCompletedTask(task);
+                }
                 if (typeof UserMemory !== 'undefined') {
                     UserMemory.recordTaskCompleted(task.title);
                 }
             } else {
                 task.completedAt = null;
+                task.duration = null;
             }
         }
 
@@ -462,7 +657,33 @@ class ActionExecutor {
         }
 
         subtask.completed = true;
+
+        const subtasks = task.subtasks || [];
+        const doneCount = subtasks.filter(item => item.completed).length;
+        const totalCount = subtasks.length;
+        const allDone = totalCount > 0 && doneCount === totalCount;
+
+        if (allDone) {
+            task.completed = true;
+            task.completedAt = new Date().toISOString();
+            if (typeof TaskDuration !== 'undefined') {
+                TaskDuration.applyToCompletedTask(task);
+            }
+            if (typeof UserMemory !== 'undefined') {
+                UserMemory.recordTaskCompleted(task.title);
+            }
+        } else {
+            task.completed = false;
+            task.completedAt = null;
+            task.duration = null;
+        }
+
         ActionExecutor.saveTasks(tasks);
+
+        return {
+            success: true,
+            message: `已完成「${task.title}」的子任务「${subtask.title}」（${doneCount}/${totalCount}）`
+        };
     }
 
     /**
@@ -582,6 +803,7 @@ class ActionExecutor {
             t.deadline && ActionExecutor.isSameDate(t.deadline, todayDate)
         );
 
+        const reminders = ActionExecutor.getRemindersOnDate(today);
 
         const mapTask = (t) => ({
             title: t.title,
@@ -608,6 +830,7 @@ class ActionExecutor {
             pendingTasks: pendingTasks.map(mapTask),
             reminders: reminders.map(r => ({
                 title: r.title,
+                time: ActionExecutor.formatReminderDisplayTime(r)
             })),
             summary: {
                 courseCount: courses.length,
@@ -675,6 +898,11 @@ class ActionExecutor {
                     };
                 }
             }
+        } else if (repeat === 'weekly' && repeatTime) {
+            const weekday = args.repeat_weekday !== undefined
+                ? parseInt(args.repeat_weekday, 10)
+                : (args.time ? new Date(args.time).getDay() : new Date().getDay());
+            time = ReminderScheduler.computeNextWeeklyTime(weekday, repeatTime);
         } else if (args.time) {
             time = new Date(args.time);
         }
@@ -683,22 +911,42 @@ class ActionExecutor {
             return { success: false, error: `无效的时间：${args.time || args.time_of_day || ''}` };
         }
 
+        if (time.getTime() <= Date.now() && repeat !== 'daily' && repeat !== 'weekly') {
             return { success: false, error: '提醒时间必须在未来，请检查时间是否正确' };
         }
 
+        const title = typeof ReminderScheduler !== 'undefined'
+            ? ReminderScheduler.cleanReminderTitle(args.title)
+            : String(args.title || '提醒').trim();
+
+        /** @type {Object} */
         const reminder = {
             id: Date.now().toString(),
+            title,
             time: time.toISOString(),
             createdAt: new Date().toISOString(),
             triggered: false,
             type: 'reminder',
             repeat: repeat,
+            repeatTime: repeatTime || null
         };
+
+        if (repeat === 'weekly') {
+            reminder.repeatWeekday = args.repeat_weekday !== undefined
+                ? parseInt(args.repeat_weekday, 10)
+                : (args.time ? new Date(args.time).getDay() : new Date().getDay());
+        }
 
         const reminders = ActionExecutor.getReminders();
         reminders.push(reminder);
         ActionExecutor.saveReminders(reminders);
 
+        let timeLabel = time.toLocaleString('zh-CN');
+        if (repeat === 'daily') {
+            timeLabel = `每日 ${repeatTime}`;
+        } else if (repeat === 'weekly') {
+            const dayLabel = ReminderScheduler.WEEKDAY_LABELS[reminder.repeatWeekday] || '';
+            timeLabel = `每周${dayLabel} ${repeatTime}`;
         }
 
         return {
@@ -726,15 +974,58 @@ class ActionExecutor {
     }
 
     /**
+     * 规范化提醒搜索关键词
+     * @param {string} query
+     * @returns {string}
+     */
+    static normalizeReminderQuery(query) {
+        let normalized = String(query || '').trim().replace(/提醒$/g, '');
+        normalized = normalized.replace(/(今天|明天|后天|大后天|的)/g, '');
+        if (typeof ReminderScheduler !== 'undefined') {
+            normalized = ReminderScheduler.extractEventTitle(normalized);
+        }
+        return normalized.toLowerCase().trim();
+    }
+
+    /**
+     * 判断提醒是否匹配搜索词
+     * @param {Object} reminder
+     * @param {string} query
+     * @returns {boolean}
+     */
+    static reminderMatchesQuery(reminder, query) {
+        const q = ActionExecutor.normalizeReminderQuery(query);
+        const title = ActionExecutor.normalizeReminderQuery(reminder.title || '');
+        if (!q) {
+            return false;
+        }
+        if (title && (title.includes(q) || q.includes(title))) {
+            return true;
+        }
+        const rawQ = String(query || '').toLowerCase().replace(/提醒$/g, '').trim();
+        const rawTitle = String(reminder.title || '').toLowerCase();
+        return rawTitle.includes(rawQ) || rawQ.includes(rawTitle);
+    }
+
+    /**
      * 删除提醒
      * @param {Object} args
      * @returns {Object}
      */
     static deleteReminder(args) {
+        const reminders = ActionExecutor.getReminders();
+        const matched = reminders.filter(r => ActionExecutor.reminderMatchesQuery(r, args.reminder_query));
 
+        if (!matched.length) {
             return { success: false, error: `未找到提醒「${args.reminder_query}」` };
         }
 
+        const matchedIds = new Set(matched.map(r => r.id));
+        const remaining = reminders.filter(r => !matchedIds.has(r.id));
+        ActionExecutor.saveReminders(remaining);
+
+        const names = matched.map(r => `「${r.title}」`).join('、');
+        return { success: true, message: `已关闭提醒 ${names}` };
     }
 
     /**
@@ -744,8 +1035,11 @@ class ActionExecutor {
      */
     static listReminders(args) {
         args = args || {};
+        let reminders = ActionExecutor.getReminders().filter(r => r.repeat === 'daily' || r.repeat === 'weekly' || !r.triggered);
 
         if (args.date) {
+            const date = new Date(`${args.date}T12:00:00`);
+            reminders = ActionExecutor.getRemindersOnDate(date);
         }
 
         const enriched = typeof ReminderManager !== 'undefined'
@@ -1010,7 +1304,10 @@ class ActionExecutor {
         }
         return ReminderManager.updateReminder(id, {
             title: args.title,
+            repeat: args.repeat,
             time_of_day: args.time_of_day,
+            time: args.time,
+            repeat_weekday: args.repeat_weekday !== undefined ? parseInt(args.repeat_weekday, 10) : undefined
         });
     }
 
