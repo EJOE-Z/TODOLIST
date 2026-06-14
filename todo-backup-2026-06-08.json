@@ -1,0 +1,2794 @@
+{
+  "version": 2,
+  "exportedAt": "2026-06-07T17:19:40.676Z",
+  "username": "EJOE_Z",
+  "userId": "u_1780847458718_zttfht",
+  "payload": {
+    "tasks": [
+      {
+        "id": "1780847696909",
+        "title": "完成软工作业",
+        "completed": false,
+        "priority": "medium",
+        "deadline": "2026-06-10T23:59:00.000Z",
+        "repeat": "none",
+        "dailyReminderTime": null,
+        "createdAt": "2026-06-07T15:54:56.909Z",
+        "subtasks": [
+          {
+            "id": "1780847696909_0",
+            "title": "完成项目",
+            "completed": false
+          },
+          {
+            "id": "1780847696909_1",
+            "title": "完成分析报告",
+            "completed": false
+          }
+        ],
+        "diary": [],
+        "duration": null,
+        "focusTime": 0,
+        "focusSessions": [],
+        "courseName": "软件工程",
+        "courseId": "11",
+        "completedAt": null
+      },
+      {
+        "id": "1780848801597",
+        "title": "英语六级",
+        "completed": false,
+        "priority": "medium",
+        "deadline": "2026-06-13T15:59:00.000Z",
+        "repeat": "none",
+        "dailyReminderTime": null,
+        "createdAt": "2026-06-07T16:13:21.597Z",
+        "subtasks": [
+          {
+            "id": "1780848801597_0",
+            "title": "制定复习计划",
+            "completed": false
+          },
+          {
+            "id": "1780848801597_1",
+            "title": "每日背单词",
+            "completed": false
+          },
+          {
+            "id": "1780848801597_2",
+            "title": "刷历年真题",
+            "completed": false
+          },
+          {
+            "id": "1780848801597_3",
+            "title": "练习听力",
+            "completed": false
+          },
+          {
+            "id": "1780848801597_4",
+            "title": "整理作文模板",
+            "completed": false
+          }
+        ],
+        "diary": [],
+        "duration": null,
+        "focusTime": 0,
+        "focusSessions": [],
+        "courseName": null,
+        "courseId": null
+      }
+    ],
+    "courses": [
+      {
+        "id": "1",
+        "name": "计算机网络",
+        "day": 1,
+        "startPeriod": 1,
+        "endPeriod": 2,
+        "location": "综合楼401",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#3b82f6"
+      },
+      {
+        "id": "2",
+        "name": "数据库系统",
+        "day": 1,
+        "startPeriod": 3,
+        "endPeriod": 4,
+        "location": "二教304",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#ef4444"
+      },
+      {
+        "id": "3",
+        "name": "人工智能基础",
+        "day": 1,
+        "startPeriod": 5,
+        "endPeriod": 6,
+        "location": "信息楼105",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#22c55e"
+      },
+      {
+        "id": "4",
+        "name": "信息安全技术",
+        "day": 1,
+        "startPeriod": 7,
+        "endPeriod": 8,
+        "location": "综合楼208",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#f59e0b"
+      },
+      {
+        "id": "5",
+        "name": "操作系统",
+        "day": 2,
+        "startPeriod": 1,
+        "endPeriod": 2,
+        "location": "信息楼203",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "6",
+        "name": "编译原理",
+        "day": 2,
+        "startPeriod": 3,
+        "endPeriod": 4,
+        "location": "实验楼A101",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#ec4899"
+      },
+      {
+        "id": "7",
+        "name": "计算机网络实验",
+        "day": 2,
+        "startPeriod": 7,
+        "endPeriod": 8,
+        "location": "信息楼4楼",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#06b6d4"
+      },
+      {
+        "id": "8",
+        "name": "算法设计与分析",
+        "day": 3,
+        "startPeriod": 1,
+        "endPeriod": 2,
+        "location": "实验楼B302",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#3b82f6"
+      },
+      {
+        "id": "9",
+        "name": "Python高级编程",
+        "day": 3,
+        "startPeriod": 5,
+        "endPeriod": 6,
+        "location": "软件实验室3",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#ef4444"
+      },
+      {
+        "id": "10",
+        "name": "公选课：金融科技概论",
+        "day": 3,
+        "startPeriod": 9,
+        "endPeriod": 10,
+        "location": "综合楼306",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#22c55e"
+      },
+      {
+        "id": "11",
+        "name": "软件工程",
+        "day": 4,
+        "startPeriod": 1,
+        "endPeriod": 2,
+        "location": "二教105",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#f59e0b"
+      },
+      {
+        "id": "12",
+        "name": "形式语言与自动机",
+        "day": 4,
+        "startPeriod": 3,
+        "endPeriod": 4,
+        "location": "二教202",
+        "teacher": "",
+        "weekType": "odd",
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "13",
+        "name": "Web前端开发",
+        "day": 4,
+        "startPeriod": 5,
+        "endPeriod": 6,
+        "location": "实验楼C202",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#ec4899"
+      },
+      {
+        "id": "14",
+        "name": "大数据技术",
+        "day": 5,
+        "startPeriod": 1,
+        "endPeriod": 2,
+        "location": "信息楼306",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#06b6d4"
+      },
+      {
+        "id": "15",
+        "name": "移动应用开发",
+        "day": 5,
+        "startPeriod": 3,
+        "endPeriod": 4,
+        "location": "软件园210",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#3b82f6"
+      },
+      {
+        "id": "16",
+        "name": "创新创业",
+        "day": 5,
+        "startPeriod": 7,
+        "endPeriod": 8,
+        "location": "二教101",
+        "teacher": "",
+        "weekType": "even",
+        "color": "#ef4444"
+      },
+      {
+        "id": "17",
+        "name": "公选课：数字图像处理",
+        "day": 5,
+        "startPeriod": 9,
+        "endPeriod": 10,
+        "location": "综合楼110",
+        "teacher": "",
+        "weekType": "all",
+        "color": "#22c55e"
+      }
+    ],
+    "reminders": [
+      {
+        "id": "1780847498461",
+        "title": "打开学习强国",
+        "time": "2026-06-08T10:30:00.000Z",
+        "createdAt": "2026-06-07T15:51:38.461Z",
+        "triggered": false,
+        "type": "reminder",
+        "repeat": "daily",
+        "repeatTime": "18:30"
+      },
+      {
+        "id": "1780847561728",
+        "title": "进行晚点名签到",
+        "time": "2026-06-08T13:00:00.000Z",
+        "createdAt": "2026-06-07T15:52:41.728Z",
+        "triggered": false,
+        "type": "reminder",
+        "repeat": "daily",
+        "repeatTime": "21:00"
+      },
+      {
+        "id": "1780850729259",
+        "title": "开会",
+        "time": "2026-06-09T04:00:00.000Z",
+        "createdAt": "2026-06-07T16:45:29.259Z",
+        "triggered": false,
+        "type": "reminder",
+        "repeat": "none",
+        "repeatTime": null
+      },
+      {
+        "id": "1780852726206",
+        "title": "值班",
+        "time": "2026-06-10T09:30:00.000Z",
+        "createdAt": "2026-06-07T17:18:46.206Z",
+        "triggered": false,
+        "type": "reminder",
+        "repeat": "weekly",
+        "repeatTime": "17:30",
+        "repeatWeekday": 3
+      }
+    ],
+    "aiUserMemory": {
+      "preferences": {
+        "nickname": "",
+        "focusDurationMinutes": 25,
+        "defaultPriority": "medium",
+        "briefingEnabled": true,
+        "schedulePreferences": {
+          "peakPeriod": "",
+          "avoidHardTasksBeforeHour": null,
+          "avoidHardTasksAfterHour": null,
+          "noRemindersAfter": "22:00",
+          "noRemindersBefore": "08:00"
+        }
+      },
+      "habits": {
+        "taskKeywords": {},
+        "dailyReminderTimes": [],
+        "lastFocusTaskTitle": "",
+        "focusSessionCount": 0,
+        "tasksCreatedCount": 0
+      },
+      "taskInsights": {
+        "完成软工作业": {
+          "focusCount": 0,
+          "title": "完成软工作业",
+          "lastCompletedAt": "2026-06-07T16:22:14.339Z"
+        }
+      },
+      "sessionContext": [
+        {
+          "role": "user",
+          "text": "关闭值班提醒",
+          "at": "2026-06-07T16:50:45.364Z"
+        },
+        {
+          "role": "assistant",
+          "text": "确定关闭提醒「值班」吗？",
+          "at": "2026-06-07T16:50:45.370Z"
+        },
+        {
+          "role": "user",
+          "text": "确认删除提醒：值班",
+          "at": "2026-06-07T16:50:46.240Z"
+        },
+        {
+          "role": "assistant",
+          "text": "✅ 已关闭提醒 「每周要值班」",
+          "at": "2026-06-07T16:50:46.250Z"
+        },
+        {
+          "role": "user",
+          "text": "每周三晚上五点半提醒我要值班",
+          "at": "2026-06-07T16:50:58.015Z"
+        },
+        {
+          "role": "assistant",
+          "text": "🔔 已设置每周提醒「每周要值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）",
+          "at": "2026-06-07T16:50:58.023Z"
+        },
+        {
+          "role": "user",
+          "text": "关闭值班提醒",
+          "at": "2026-06-07T17:18:33.086Z"
+        },
+        {
+          "role": "assistant",
+          "text": "确定关闭提醒「值班」吗？",
+          "at": "2026-06-07T17:18:33.092Z"
+        },
+        {
+          "role": "user",
+          "text": "确认删除提醒：值班",
+          "at": "2026-06-07T17:18:35.007Z"
+        },
+        {
+          "role": "assistant",
+          "text": "✅ 已关闭提醒 「每周要值班」",
+          "at": "2026-06-07T17:18:35.016Z"
+        },
+        {
+          "role": "user",
+          "text": "每周三晚上五点半提醒我要值班",
+          "at": "2026-06-07T17:18:46.203Z"
+        },
+        {
+          "role": "assistant",
+          "text": "🔔 已设置每周提醒「值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）",
+          "at": "2026-06-07T17:18:46.211Z"
+        }
+      ],
+      "planPostpones": {},
+      "notes": [
+        "每周三晚上五点半提醒我要值班"
+      ],
+      "meta": {
+        "lastVisitDate": "2026-06-08",
+        "briefingShownDate": "2026-06-08",
+        "nudgeShownKeys": {},
+        "visitCount": 14,
+        "todayPlan": {
+          "date": "2026-06-08",
+          "slots": [
+            {
+              "id": "2026-06-08_0_965",
+              "startMinutes": 965,
+              "endMinutes": 990,
+              "taskTitle": "完成软工作业",
+              "subtaskTitle": "完成项目",
+              "label": "完成软工作业 · 完成项目",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_1_995",
+              "startMinutes": 995,
+              "endMinutes": 1020,
+              "taskTitle": "完成软工作业",
+              "subtaskTitle": "完成分析报告",
+              "label": "完成软工作业 · 完成分析报告",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_2_1025",
+              "startMinutes": 1025,
+              "endMinutes": 1050,
+              "taskTitle": "英语六级",
+              "subtaskTitle": "制定复习计划",
+              "label": "英语六级 · 制定复习计划",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_3_1125",
+              "startMinutes": 1125,
+              "endMinutes": 1150,
+              "taskTitle": "英语六级",
+              "subtaskTitle": "每日背单词",
+              "label": "英语六级 · 每日背单词",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_4_1155",
+              "startMinutes": 1155,
+              "endMinutes": 1180,
+              "taskTitle": "英语六级",
+              "subtaskTitle": "刷历年真题",
+              "label": "英语六级 · 刷历年真题",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_5_1185",
+              "startMinutes": 1185,
+              "endMinutes": 1210,
+              "taskTitle": "英语六级",
+              "subtaskTitle": "练习听力",
+              "label": "英语六级 · 练习听力",
+              "status": "pending"
+            },
+            {
+              "id": "2026-06-08_6_1215",
+              "startMinutes": 1215,
+              "endMinutes": 1240,
+              "taskTitle": "英语六级",
+              "subtaskTitle": "整理作文模板",
+              "label": "英语六级 · 整理作文模板",
+              "status": "pending"
+            }
+          ],
+          "savedAt": "2026-06-07T16:23:53.216Z"
+        }
+      }
+    },
+    "chatSessions": [
+      {
+        "id": "1780847458866",
+        "title": "今日简报",
+        "createdAt": "2026-06-07T15:50:58.875Z",
+        "messages": [
+          {
+            "id": 1780848086525,
+            "sender": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月8日星期一\n---\n### 📊 今日概览\n📚 **课程 4 门**\n1. 计算机网络 第1-2节 @ 综合楼401\n2. 数据库系统 第3-4节 @ 二教304\n3. 人工智能基础 第5-6节 @ 信息楼105\n4. 信息安全技术 第7-8节 @ 综合楼208\n✅ **待办 1 项**\n1. 🟡 完成软工作业 ⏰2天后截止\n🔔 **今日提醒 2 条**\n· 18:30 打开学习强国\n· 21:00 进行晚点名签到\n📈 总完成率：**50%**（1/2）\n---\n### 📋 今日安排建议\n1. **16:05-16:30** 专注「完成软工作业 · 完成项目」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n2. **20:15-20:40** 专注「完成软工作业 · 完成分析报告」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n· 优先：**完成软工作业**（2 天后截止）\n---\n### 💡 智能建议\n· 优先处理 **完成软工作业**\n· 上午有课，可利用课间处理短任务\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*",
+            "timestamp": "2026-06-07T16:01:26.525Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780847458867.9604,
+            "sender": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月7日星期日\n---\n### 📊 今日概览\n📚 今日无课程\n✅ 暂无待办任务\n📈 总完成率：**0%**（0/0）\n---\n### 💡 智能建议\n· 今日较空闲，可以规划新目标或复习\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*",
+            "timestamp": "2026-06-07T15:50:58.867Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780847466750.7,
+            "sender": "user",
+            "content": "今日简报",
+            "timestamp": "2026-06-07T15:51:06.750Z"
+          },
+          {
+            "id": 1780847466754.6033,
+            "sender": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月7日星期日\n---\n### 📊 今日概览\n📚 今日无课程\n✅ 暂无待办任务\n📈 总完成率：**0%**（0/0）\n---\n### 💡 智能建议\n· 今日较空闲，可以规划新目标或复习\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*",
+            "timestamp": "2026-06-07T15:51:06.754Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780847473353.5544,
+            "sender": "user",
+            "content": "我叫圈圈，今年大三",
+            "timestamp": "2026-06-07T15:51:13.353Z"
+          },
+          {
+            "id": 1780847476533.7756,
+            "sender": "assistant",
+            "content": "你好，圈圈！很高兴认识你。有什么可以帮助你的吗？",
+            "timestamp": "2026-06-07T15:51:16.533Z"
+          },
+          {
+            "id": 1780847498456.887,
+            "sender": "user",
+            "content": "提醒我每晚六点半打开学习强国",
+            "timestamp": "2026-06-07T15:51:38.456Z"
+          },
+          {
+            "id": 1780847498461.9856,
+            "sender": "assistant",
+            "content": "🔔 已设置每日提醒「打开学习强国」\n\n每天 **18:30** 到点提醒您（下次：2026/6/8 18:30:00）",
+            "timestamp": "2026-06-07T15:51:38.461Z"
+          },
+          {
+            "id": 1780847514808.6394,
+            "sender": "user",
+            "content": "导入课表",
+            "timestamp": "2026-06-07T15:51:54.808Z"
+          },
+          {
+            "id": 1780847518354.1152,
+            "sender": "assistant",
+            "content": "已打开文件选择器，请选择 JSON / TXT / PDF 格式的课程表文件。",
+            "timestamp": "2026-06-07T15:51:58.354Z"
+          },
+          {
+            "id": 1780847525569.8083,
+            "sender": "assistant",
+            "content": "📂 正在解析课表文件「计算机课程表1.json」…",
+            "timestamp": "2026-06-07T15:52:05.569Z"
+          },
+          {
+            "id": 1780847525575.108,
+            "sender": "assistant",
+            "content": "✅ 课程表导入成功！\n\n共导入 17 门课程（JSON）。",
+            "timestamp": "2026-06-07T15:52:05.575Z"
+          },
+          {
+            "id": 1780847561721.0876,
+            "sender": "user",
+            "content": "每晚九点提醒我进行晚点名签到",
+            "timestamp": "2026-06-07T15:52:41.721Z"
+          },
+          {
+            "id": 1780847561729.0015,
+            "sender": "assistant",
+            "content": "🔔 已设置每日提醒「进行晚点名签到」\n\n每天 **21:00** 到点提醒您（下次：2026/6/8 21:00:00）",
+            "timestamp": "2026-06-07T15:52:41.729Z"
+          },
+          {
+            "id": 1780847572750.28,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T15:52:52.750Z"
+          },
+          {
+            "id": 1780847572756.333,
+            "sender": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。",
+            "timestamp": "2026-06-07T15:52:52.756Z"
+          },
+          {
+            "id": 1780847579708.0007,
+            "sender": "user",
+            "content": "英语六级",
+            "timestamp": "2026-06-07T15:52:59.708Z"
+          },
+          {
+            "id": 1780847579714.4543,
+            "sender": "assistant",
+            "content": "✅ 已创建任务「英语六级」，已自动拆分 5 个子任务",
+            "timestamp": "2026-06-07T15:52:59.714Z"
+          },
+          {
+            "id": 1780847602592.9841,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T15:53:22.592Z"
+          },
+          {
+            "id": 1780847602598.8518,
+            "sender": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。",
+            "timestamp": "2026-06-07T15:53:22.598Z"
+          },
+          {
+            "id": 1780847608513.2393,
+            "sender": "user",
+            "content": "完成软工作业",
+            "timestamp": "2026-06-07T15:53:28.513Z"
+          },
+          {
+            "id": 1780847608518.8948,
+            "sender": "assistant",
+            "content": "好的，我来帮您创建「完成软工作业」。\n\n📚 已关联课程：**软件工程**（周四 第1-2节 · 二教105）\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`",
+            "timestamp": "2026-06-07T15:53:28.518Z"
+          },
+          {
+            "id": 1780847622714.8662,
+            "sender": "user",
+            "content": "下周三晚上19点",
+            "timestamp": "2026-06-07T15:53:42.714Z"
+          },
+          {
+            "id": 1780847622719.1853,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。",
+            "timestamp": "2026-06-07T15:53:42.719Z"
+          },
+          {
+            "id": 1780847637907.838,
+            "sender": "user",
+            "content": "下周三晚上七点",
+            "timestamp": "2026-06-07T15:53:57.907Z"
+          },
+          {
+            "id": 1780847637913.0095,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。",
+            "timestamp": "2026-06-07T15:53:57.913Z"
+          },
+          {
+            "id": 1780847650224.2178,
+            "sender": "user",
+            "content": "下周三19：00",
+            "timestamp": "2026-06-07T15:54:10.224Z"
+          },
+          {
+            "id": 1780847650230.4055,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。",
+            "timestamp": "2026-06-07T15:54:10.230Z"
+          },
+          {
+            "id": 1780847665120.0498,
+            "sender": "user",
+            "content": "下周三19:00",
+            "timestamp": "2026-06-07T15:54:25.120Z"
+          },
+          {
+            "id": 1780847665125.8506,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。",
+            "timestamp": "2026-06-07T15:54:25.125Z"
+          },
+          {
+            "id": 1780847679945.3467,
+            "sender": "user",
+            "content": "下周本课程上课前",
+            "timestamp": "2026-06-07T15:54:39.945Z"
+          },
+          {
+            "id": 1780847679952.8743,
+            "sender": "assistant",
+            "content": "截止时间：**6月11日星期四 07:59**\n\n请告诉我**具体要做什么**，我会拆成子任务（可选）。\n可以一次说多项，用逗号或换行分隔；若暂时没有，回复 **无** 或 **跳过** 即可。\n例如：\n- 完成需求分析报告\n- 绘制用例图\n- 提交实验代码",
+            "timestamp": "2026-06-07T15:54:39.952Z"
+          },
+          {
+            "id": 1780847696902.4202,
+            "sender": "user",
+            "content": "完成项目、完成分析报告",
+            "timestamp": "2026-06-07T15:54:56.902Z"
+          },
+          {
+            "id": 1780847696911.3113,
+            "sender": "assistant",
+            "content": "✅ 已创建任务「完成软工作业」\n📚 关联课程：软件工程\n📅 截止：6月11日星期四 07:59\n📝 子任务 2 项：\n1. 完成项目\n2. 完成分析报告",
+            "timestamp": "2026-06-07T15:54:56.911Z"
+          },
+          {
+            "id": 1780847864471.276,
+            "sender": "user",
+            "content": "完成计网试验任务",
+            "timestamp": "2026-06-07T15:57:44.471Z"
+          },
+          {
+            "id": 1780847864478.491,
+            "sender": "assistant",
+            "content": "❌ 未找到任务「计网试验」",
+            "timestamp": "2026-06-07T15:57:44.478Z"
+          },
+          {
+            "id": 1780847875038.9597,
+            "sender": "user",
+            "content": "完成英语六级复习计划任务",
+            "timestamp": "2026-06-07T15:57:55.038Z"
+          },
+          {
+            "id": 1780847875046.024,
+            "sender": "assistant",
+            "content": "✅ 已更新任务「英语六级」",
+            "timestamp": "2026-06-07T15:57:55.046Z"
+          },
+          {
+            "id": 1780848083281.9744,
+            "sender": "user",
+            "content": "完成英语六级复习计划任务",
+            "timestamp": "2026-06-07T16:01:23.281Z"
+          },
+          {
+            "id": 1780848083290.7373,
+            "sender": "assistant",
+            "content": "✅ 已更新任务「英语六级」",
+            "timestamp": "2026-06-07T16:01:23.290Z"
+          },
+          {
+            "id": 1780848096470.518,
+            "sender": "user",
+            "content": "完成英语六级复习计划任务",
+            "timestamp": "2026-06-07T16:01:36.470Z"
+          },
+          {
+            "id": 1780848096480.9333,
+            "sender": "assistant",
+            "content": "✅ 已更新任务「英语六级」",
+            "timestamp": "2026-06-07T16:01:36.480Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "system",
+            "content": "你是「智能TODO清单」的 AI **学习助手**，可以通过调用工具帮用户管理任务、课表、日历提醒和专注计时，并主动帮用户规划时间。\n\n当前时间：2026年6月7日星期日 23:51\n\n## 用户偏好与记忆\n默认专注时长：25 分钟\n默认任务优先级：medium\n22:00 后不安排提醒\n本会话近期：assistant: 🌅 **夜深了！这是您的今日简报**\n📅 2026年6月7日星期日\n---\n### 📊 今日概览\n📚 今日无课程\n✅ 暂无待办任务\n📈 总完成率：**0%**（0/0）\n---\n### 💡 智能建议\n· 今日较空闲，可以规划新目\nuser: 我叫圈圈，今年大三\nassistant: 你好，圈圈！很高兴认识你。有什么可以帮助你的吗？\nuser: 提醒我每晚六点半打开学习强国\nassistant: 🔔 已设置每日提醒「打开学习强国」\n\n每天 **18:30** 到点提醒您（下次：2026/6/8 18:30:00）\nuser: 导入课表\n\n## 你的能力\n- 创建/编辑/删除/完成任务及子任务\n- 管理课程表（添加/删除/查询课程）\n- 设置和删除提醒\n- 启动专注模式（番茄钟）\n- 查看统计数据和今日安排\n- **智能排程、自动重排（重排今日计划）与主动跟进**\n- 创建任务时自动匹配子任务模板（六级/考研/论文等）\n- 切换应用视图\n\n## 助手工作原则\n1. 语气像贴心助手：主动、简洁、有优先级意识，不说空话\n2. 用户问「怎么安排」「今日计划」「帮我规划」→ 必须调用 suggest_daily_plan\n3. 需要了解是否该主动提醒时 → 调用 get_secretary_nudges\n4. 理解用户的自然语言意图，选择合适的工具执行操作\n5. **查询今日安排、今天有什么任务/课时，必须先调用 get_today_schedule 工具，严禁不查数据就回答**\n6. **pendingTasks = 全部未完成待办；tasksDueToday = 仅今天截止的任务。两者完全不同，禁止混用**\n7. **若 pendingTaskCount > 0，绝不可说「待办为空」；若 tasksDueTodayCount = 0，应说「今日无截止任务」而非「没有待办」**\n8. 需要操作数据时，优先调用工具，不要编造结果\n9. 涉及删除等破坏性操作时，若用户意图明确则直接执行\n10. 日期时间请转换为 ISO 8601 格式传给工具（如 2026-06-06T20:00:00）\n11. 星期映射：周日=0，周一=1，周二=2，周三=3，周四=4，周五=5，周六=6\n12. 回复使用中文，简洁友好，适当使用 emoji\n13. 复杂任务可连续调用多个工具（如创建任务+添加子任务+设提醒）\n14. 导入课程表文件需调用 trigger_schedule_import\n15. **「X分钟后提醒我」必须用 set_reminder 且 minutes_from_now=X，不要编造已设置**\n16. **「每天/每晚X点提醒」优先用 set_reminder(repeat=daily, time_of_day=HH:mm) 或 create_daily_reminder_task，仅写入提醒、不创建待办；只有用户明确要「每日任务/习惯打卡」时才用 create_task(repeat=daily)**\n17. 设置提醒前若 time 已过期且非 daily，必须重新计算为未来时间\n18. 用户说「记住XXX」时调用 remember_note；设置昵称/默认偏好时用 save_user_preference\n19. 回复时适当参考用户偏好（如昵称、默认优先级、常用提醒时间、进行中任务的专注记录、时段排程偏好）\n20. 用户说错过计划或专注结束时可建议「重排今日计划」\n21. 创建任务时若标题匹配复习/考试类主题且未提供 subtasks，create_task 会自动拆分模板子任务\n22. **课程作业/报告/实验类任务：必须先问清截止时间；子任务可选（用户说「无」可留空），标题含课程名或简称时自动关联课表**\n23. create_task 若返回 needMoreInfo，说明信息不足，继续追问用户后再创建\n\n## 当前数据快照\n{\n  \"taskCount\": 0,\n  \"pendingCount\": 0,\n  \"todayDeadlineCount\": 0,\n  \"courseCount\": 0,\n  \"reminderCount\": 1,\n  \"pendingTasks\": [],\n  \"todayCourses\": []\n}"
+          },
+          {
+            "role": "user",
+            "content": "我叫圈圈，今年大三"
+          },
+          {
+            "role": "assistant",
+            "content": "你好，圈圈！很高兴认识你。有什么可以帮助你的吗？"
+          },
+          {
+            "role": "user",
+            "content": "提醒我每晚六点半打开学习强国"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置每日提醒「打开学习强国」\n\n每天 **18:30** 到点提醒您（下次：2026/6/8 18:30:00）"
+          },
+          {
+            "role": "user",
+            "content": "导入课表"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "trigger_schedule_import"
+                },
+                "id": "call_-7557138787176805553",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "content": "{\"success\":true,\"message\":\"已打开文件选择器，请选择 JSON / TXT / PDF 格式的课程表文件\"}",
+            "tool_call_id": "call_-7557138787176805553"
+          },
+          {
+            "role": "assistant",
+            "content": "已打开文件选择器，请选择 JSON / TXT / PDF 格式的课程表文件。"
+          },
+          {
+            "role": "user",
+            "content": "每晚九点提醒我进行晚点名签到"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置每日提醒「进行晚点名签到」\n\n每天 **21:00** 到点提醒您（下次：2026/6/8 21:00:00）"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。"
+          },
+          {
+            "role": "user",
+            "content": "英语六级"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已创建任务「英语六级」，已自动拆分 5 个子任务"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。"
+          },
+          {
+            "role": "user",
+            "content": "完成软工作业"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，我来帮您创建「完成软工作业」。\n\n📚 已关联课程：**软件工程**（周四 第1-2节 · 二教105）\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`"
+          },
+          {
+            "role": "user",
+            "content": "下周三晚上19点"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。"
+          },
+          {
+            "role": "user",
+            "content": "下周三晚上七点"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。"
+          },
+          {
+            "role": "user",
+            "content": "下周三19：00"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。"
+          },
+          {
+            "role": "user",
+            "content": "下周三19:00"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周本课程上课前`。"
+          },
+          {
+            "role": "user",
+            "content": "下周本课程上课前"
+          },
+          {
+            "role": "assistant",
+            "content": "截止时间：**6月11日星期四 07:59**\n\n请告诉我**具体要做什么**，我会拆成子任务（可选）。\n可以一次说多项，用逗号或换行分隔；若暂时没有，回复 **无** 或 **跳过** 即可。\n例如：\n- 完成需求分析报告\n- 绘制用例图\n- 提交实验代码"
+          },
+          {
+            "role": "user",
+            "content": "完成项目、完成分析报告"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已创建任务「完成软工作业」\n📚 关联课程：软件工程\n📅 截止：6月11日星期四 07:59\n📝 子任务 2 项：\n1. 完成项目\n2. 完成分析报告"
+          },
+          {
+            "role": "user",
+            "content": "完成计网试验任务"
+          },
+          {
+            "role": "assistant",
+            "content": "❌ 未找到任务「计网试验」"
+          },
+          {
+            "role": "user",
+            "content": "完成英语六级复习计划任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已更新任务「英语六级」"
+          },
+          {
+            "role": "user",
+            "content": "完成英语六级复习计划任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已更新任务「英语六级」"
+          },
+          {
+            "role": "user",
+            "content": "完成英语六级复习计划任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已更新任务「英语六级」"
+          }
+        ],
+        "updatedAt": "2026-06-07T16:09:14.305Z"
+      },
+      {
+        "id": "1780848216171",
+        "title": "新对话",
+        "createdAt": "2026-06-07T16:03:36.171Z",
+        "updatedAt": "2026-06-07T16:38:44.626Z",
+        "messages": [
+          {
+            "id": 1780848216173.4648,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:03:36.173Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          }
+        ],
+        "apiMessages": []
+      },
+      {
+        "id": "1780848224834",
+        "title": "完成英语六级复习计划",
+        "createdAt": "2026-06-07T16:03:44.834Z",
+        "updatedAt": "2026-06-07T16:09:33.063Z",
+        "messages": [
+          {
+            "id": 1780848224836.1694,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:03:44.836Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780848255534.2544,
+            "sender": "user",
+            "content": "完成英语六级复习计划",
+            "timestamp": "2026-06-07T16:04:15.534Z"
+          },
+          {
+            "id": 1780848260012.8772,
+            "sender": "assistant",
+            "content": "已更新任务「完成英语六级复习计划」。",
+            "timestamp": "2026-06-07T16:04:20.012Z"
+          },
+          {
+            "id": 1780848275121.575,
+            "sender": "assistant",
+            "content": "✅ 任务「英语六级」已更新",
+            "timestamp": "2026-06-07T16:04:35.121Z"
+          },
+          {
+            "id": 1780848284283.5122,
+            "sender": "user",
+            "content": "完成英语六级复习计划任务",
+            "timestamp": "2026-06-07T16:04:44.283Z"
+          },
+          {
+            "id": 1780848284288.2341,
+            "sender": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「制定复习计划」（1/5）",
+            "timestamp": "2026-06-07T16:04:44.288Z"
+          },
+          {
+            "id": 1780848305063.4343,
+            "sender": "user",
+            "content": "已完成每日背单词任务",
+            "timestamp": "2026-06-07T16:05:05.063Z"
+          },
+          {
+            "id": 1780848307226.5046,
+            "sender": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「每日背单词」（2/5）",
+            "timestamp": "2026-06-07T16:05:07.226Z"
+          },
+          {
+            "id": 1780848558944.843,
+            "sender": "user",
+            "content": "已完成每日背单词任务",
+            "timestamp": "2026-06-07T16:09:18.944Z"
+          },
+          {
+            "id": 1780848561055.8489,
+            "sender": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「每日背单词」（2/5）",
+            "timestamp": "2026-06-07T16:09:21.055Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "system",
+            "content": "你是「智能TODO清单」的 AI **学习助手**，可以通过调用工具帮用户管理任务、课表、日历提醒和专注计时，并主动帮用户规划时间。\n\n当前时间：2026年6月8日星期一 00:09\n\n## 用户偏好与记忆\n默认专注时长：25 分钟\n默认任务优先级：medium\n22:00 后不安排提醒\n常关注主题：英语六级、完成软工作业\n本会话近期：assistant: ✅ 任务「英语六级」已更新\nuser: 完成英语六级复习计划任务\nassistant: ✅ 已完成「英语六级」的子任务「制定复习计划」（1/5）\nuser: 已完成每日背单词任务\nassistant: ✅ 已完成「英语六级」的子任务「每日背单词」（2/5）\nuser: 已完成每日背单词任务\n\n## 你的能力\n- 创建/编辑/删除/完成任务及子任务\n- 管理课程表（添加/删除/查询课程）\n- 设置和删除提醒\n- 启动专注模式（番茄钟）\n- 查看统计数据和今日安排\n- **智能排程、自动重排（重排今日计划）与主动跟进**\n- 创建任务时自动匹配子任务模板（六级/考研/论文等）\n- 切换应用视图\n\n## 助手工作原则\n1. 语气像贴心助手：主动、简洁、有优先级意识，不说空话\n2. 用户问「怎么安排」「今日计划」「帮我规划」→ 必须调用 suggest_daily_plan\n3. 需要了解是否该主动提醒时 → 调用 get_secretary_nudges\n4. 理解用户的自然语言意图，选择合适的工具执行操作\n5. **查询今日安排、今天有什么任务/课时，必须先调用 get_today_schedule 工具，严禁不查数据就回答**\n6. **pendingTasks = 全部未完成待办；tasksDueToday = 仅今天截止的任务。两者完全不同，禁止混用**\n7. **若 pendingTaskCount > 0，绝不可说「待办为空」；若 tasksDueTodayCount = 0，应说「今日无截止任务」而非「没有待办」**\n8. 需要操作数据时，优先调用工具，不要编造结果\n9. 涉及删除等破坏性操作时，若用户意图明确则直接执行\n10. 日期时间请转换为 ISO 8601 格式传给工具（如 2026-06-06T20:00:00）\n11. 星期映射：周日=0，周一=1，周二=2，周三=3，周四=4，周五=5，周六=6\n12. 回复使用中文，简洁友好，适当使用 emoji\n13. 复杂任务可连续调用多个工具（如创建任务+添加子任务+设提醒）\n14. 导入课程表文件需调用 trigger_schedule_import\n15. **「X分钟后提醒我」必须用 set_reminder 且 minutes_from_now=X，不要编造已设置**\n16. **「每天/每晚X点提醒」优先用 set_reminder(repeat=daily, time_of_day=HH:mm) 或 create_daily_reminder_task，仅写入提醒、不创建待办；只有用户明确要「每日任务/习惯打卡」时才用 create_task(repeat=daily)**\n17. 设置提醒前若 time 已过期且非 daily，必须重新计算为未来时间\n18. 用户说「记住XXX」时调用 remember_note；设置昵称/默认偏好时用 save_user_preference\n19. 回复时适当参考用户偏好（如昵称、默认优先级、常用提醒时间、进行中任务的专注记录、时段排程偏好）\n20. 用户说错过计划或专注结束时可建议「重排今日计划」\n21. 创建任务时若标题匹配复习/考试类主题且未提供 subtasks，create_task 会自动拆分模板子任务\n22. **课程作业/报告/实验类任务：必须先问清截止时间；子任务可选（用户说「无」可留空），标题含课程名或简称时自动关联课表**\n23. create_task 若返回 needMoreInfo，说明信息不足，继续追问用户后再创建\n\n## 当前数据快照\n{\n  \"taskCount\": 2,\n  \"pendingCount\": 2,\n  \"todayDeadlineCount\": 0,\n  \"courseCount\": 17,\n  \"reminderCount\": 2,\n  \"pendingTasks\": [\n    {\n      \"title\": \"英语六级\",\n      \"deadline\": \"无截止日期\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 5\n    },\n    {\n      \"title\": \"完成软工作业\",\n      \"deadline\": \"2026-06-10T23:59:00.000Z\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 2\n    }\n  ],\n  \"todayCourses\": [\n    \"计算机网络\",\n    \"数据库系统\",\n    \"人工智能基础\",\n    \"信息安全技术\"\n  ]\n}"
+          },
+          {
+            "role": "user",
+            "content": "完成英语六级复习计划"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"task_query\": \"英语六级\", \"title\": \"完成英语六级复习计划\"}",
+                  "name": "update_task"
+                },
+                "id": "call_-7557136004037999485",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "content": "{\"success\":true,\"message\":\"已更新任务「完成英语六级复习计划」\",\"task\":{\"id\":\"1780847579712\",\"title\":\"完成英语六级复习计划\",\"deadline\":null}}",
+            "tool_call_id": "call_-7557136004037999485"
+          },
+          {
+            "role": "assistant",
+            "content": "已更新任务「完成英语六级复习计划」。"
+          },
+          {
+            "role": "user",
+            "content": "完成英语六级复习计划任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「制定复习计划」（1/5）"
+          },
+          {
+            "role": "user",
+            "content": "已完成每日背单词任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「每日背单词」（2/5）"
+          },
+          {
+            "role": "user",
+            "content": "已完成每日背单词任务"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已完成「英语六级」的子任务「每日背单词」（2/5）"
+          }
+        ]
+      },
+      {
+        "id": "1780848573064",
+        "title": "已完成每日背单词任务",
+        "createdAt": "2026-06-07T16:09:33.064Z",
+        "updatedAt": "2026-06-07T16:20:09.606Z",
+        "messages": [
+          {
+            "id": 1780848573065.8413,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:09:33.065Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780848578142.291,
+            "sender": "user",
+            "content": "已完成每日背单词任务",
+            "timestamp": "2026-06-07T16:09:38.142Z"
+          },
+          {
+            "id": 1780848581354.9143,
+            "sender": "assistant",
+            "content": "🌟 优秀！您已经完成了今天的「每日背单词」任务。📚\n\n现在，我们可以根据您已经完成的情况，重新规划一下今天的安排。您想要继续进行其他学习任务，还是休息一下？告诉我您的想法，我会帮您调整计划。",
+            "timestamp": "2026-06-07T16:09:41.354Z"
+          },
+          {
+            "id": 1780848774335.8723,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:12:54.335Z"
+          },
+          {
+            "id": 1780848774339.8716,
+            "sender": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。",
+            "timestamp": "2026-06-07T16:12:54.339Z"
+          },
+          {
+            "id": 1780848778442.0554,
+            "sender": "user",
+            "content": "英语六级",
+            "timestamp": "2026-06-07T16:12:58.442Z"
+          },
+          {
+            "id": 1780848778446.7532,
+            "sender": "assistant",
+            "content": "好的，我来帮您创建「英语六级」。\n\n📚 暂未在课表中匹配到对应课程。若有关联课程，创建后可在任务中补充。\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`、`下周本课程上课前`\n若暂时没有，也可以回复 **无** 或 **暂不设置**。",
+            "timestamp": "2026-06-07T16:12:58.446Z"
+          },
+          {
+            "id": 1780848788921.933,
+            "sender": "user",
+            "content": "6.13",
+            "timestamp": "2026-06-07T16:13:08.921Z"
+          },
+          {
+            "id": 1780848788926.3284,
+            "sender": "assistant",
+            "content": "截止时间：**6月13日星期六 23:59**\n\n根据任务类型，我为您推荐了以下**子任务**：\n1. 制定复习计划\n2. 每日背单词\n3. 刷历年真题\n4. 练习听力\n5. 整理作文模板\n\n回复 **确认** 采用推荐；也可以自行列出子任务；回复 **无** 则不添加。",
+            "timestamp": "2026-06-07T16:13:08.926Z"
+          },
+          {
+            "id": 1780848801592.3555,
+            "sender": "user",
+            "content": "确认",
+            "timestamp": "2026-06-07T16:13:21.592Z"
+          },
+          {
+            "id": 1780848801599.8953,
+            "sender": "assistant",
+            "content": "✅ 已创建任务「英语六级」\n📅 截止：6月13日星期六 23:59\n📝 子任务 5 项：\n1. 制定复习计划\n2. 每日背单词\n3. 刷历年真题\n4. 练习听力\n5. 整理作文模板",
+            "timestamp": "2026-06-07T16:13:21.599Z"
+          },
+          {
+            "id": 1780849071130.247,
+            "sender": "user",
+            "content": "明年要考研，帮我推荐一下复习计划",
+            "timestamp": "2026-06-07T16:17:51.130Z"
+          },
+          {
+            "id": 1780849075494.1716,
+            "sender": "assistant",
+            "content": "好的，为了更好地为您制定考研复习计划，我需要了解以下信息：\n\n1. 您打算报考哪个学校和专业？\n2. 您目前的基础和目标分数是多少？\n3. 您每天可以投入学习的时间是多少？\n\n请您提供这些信息，我将为您制定一个个性化的复习计划。",
+            "timestamp": "2026-06-07T16:17:55.494Z"
+          },
+          {
+            "id": 1780849091274.2114,
+            "sender": "user",
+            "content": "我打算报考清华的计算机专业",
+            "timestamp": "2026-06-07T16:18:11.274Z"
+          },
+          {
+            "id": 1780849094216.8528,
+            "sender": "assistant",
+            "content": "了解了，您打算报考清华的计算机专业。\n\n接下来，请告诉我您目前的基础水平，以及您希望达到的目标分数是多少？\n\n此外，您每天可以投入学习的时间是多少？这将帮助我为您制定一个合理的学习计划。",
+            "timestamp": "2026-06-07T16:18:14.216Z"
+          },
+          {
+            "id": 1780849116544.0186,
+            "sender": "user",
+            "content": "目前计算机四级，希望能考过就行",
+            "timestamp": "2026-06-07T16:18:36.544Z"
+          },
+          {
+            "id": 1780849128891.3699,
+            "sender": "assistant",
+            "content": "感谢您的分享。根据您提供的信息，以下是一个初步的考研复习计划：\n\n### 复习阶段\n1. **基础阶段（现在 - 8月）**\n   - 每日学习时间：3-4小时\n   - 主要任务：\n     - 复习计算机基础知识\n     - 完成课后习题和模拟题\n\n2. **强化阶段（9月 - 11月）**\n   - 每日学习时间：4-5小时\n   - 主要任务：\n     - 深入学习计算机专业课程\n     - 每周进行一次模拟考试\n\n3. **冲刺阶段（12月 - 考试前）**\n   - 每日学习时间：5-6小时\n   - 主要任务：\n     - 复习重点和难点\n     - 每天进行全真模拟考试\n\n### 每日学习计划\n- **上午**：学习专业课程和基础知识\n- **下午**：做习题和模拟题\n- **晚上**：复习当天所学内容，准备第二天的学习\n\n### 注意事项\n- 保持良好的作息时间，保证充足的睡眠\n- 定期进行自我检测，了解自己的学习进度\n- 保持积极的心态，遇到困难及时寻求帮助\n\n这个计划是一个初步的框架，您可以根据自己的实际情况进行调整。如果您需要更详细的学习计划，请告诉我您的每日可投入学习时间，我可以为您制定更具体的计划。",
+            "timestamp": "2026-06-07T16:18:48.891Z"
+          },
+          {
+            "id": 1780849163999.8188,
+            "sender": "user",
+            "content": "你还记得我叫什么吗",
+            "timestamp": "2026-06-07T16:19:23.999Z"
+          },
+          {
+            "id": 1780849166700.9646,
+            "sender": "assistant",
+            "content": "当然记得，您是我的用户，您之前告诉我您叫李明。有什么可以帮助您的吗？🌟",
+            "timestamp": "2026-06-07T16:19:26.700Z"
+          },
+          {
+            "id": 1780849175714.8616,
+            "sender": "user",
+            "content": "我叫圈圈，今年大三",
+            "timestamp": "2026-06-07T16:19:35.714Z"
+          },
+          {
+            "id": 1780849178502.937,
+            "sender": "assistant",
+            "content": "好的，现在我知道了，您叫圈圈，今年是大三。有什么我可以帮您的吗？🌟",
+            "timestamp": "2026-06-07T16:19:38.502Z"
+          },
+          {
+            "id": 1780849189500.4927,
+            "sender": "user",
+            "content": "我喜欢听音乐和看电影",
+            "timestamp": "2026-06-07T16:19:49.500Z"
+          },
+          {
+            "id": 1780849193070.745,
+            "sender": "assistant",
+            "content": "好的，我已经记住了，您喜欢听音乐和看电影。如果您在学习之余需要放松，可以享受这些活动。如果您需要我帮助您规划与这些爱好相关的活动或者时间，随时告诉我哦。🎶🍿",
+            "timestamp": "2026-06-07T16:19:53.070Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "system",
+            "content": "你是「智能TODO清单」的 AI **学习助手**，可以通过调用工具帮用户管理任务、课表、日历提醒和专注计时，并主动帮用户规划时间。\n\n当前时间：2026年6月8日星期一 00:19\n\n## 用户偏好与记忆\n默认专注时长：25 分钟\n默认任务优先级：medium\n22:00 后不安排提醒\n本会话近期：user: 你还记得我叫什么吗\nassistant: 当然记得，您是我的用户，您之前告诉我您叫李明。有什么可以帮助您的吗？🌟\nuser: 我叫圈圈，今年大三\nassistant: 好的，现在我知道了，您叫圈圈，今年是大三。有什么我可以帮您的吗？🌟\nuser: 我喜欢听音乐和看电影\n\n## 你的能力\n- 创建/编辑/删除/完成任务及子任务\n- 管理课程表（添加/删除/查询课程）\n- 设置和删除提醒\n- 启动专注模式（番茄钟）\n- 查看统计数据和今日安排\n- **智能排程、自动重排（重排今日计划）与主动跟进**\n- 创建任务时自动匹配子任务模板（六级/考研/论文等）\n- 切换应用视图\n\n## 助手工作原则\n1. 语气像贴心助手：主动、简洁、有优先级意识，不说空话\n2. 用户问「怎么安排」「今日计划」「帮我规划」→ 必须调用 suggest_daily_plan\n3. 需要了解是否该主动提醒时 → 调用 get_secretary_nudges\n4. 理解用户的自然语言意图，选择合适的工具执行操作\n5. **查询今日安排、今天有什么任务/课时，必须先调用 get_today_schedule 工具，严禁不查数据就回答**\n6. **pendingTasks = 全部未完成待办；tasksDueToday = 仅今天截止的任务。两者完全不同，禁止混用**\n7. **若 pendingTaskCount > 0，绝不可说「待办为空」；若 tasksDueTodayCount = 0，应说「今日无截止任务」而非「没有待办」**\n8. 需要操作数据时，优先调用工具，不要编造结果\n9. 涉及删除等破坏性操作时，若用户意图明确则直接执行\n10. 日期时间请转换为 ISO 8601 格式传给工具（如 2026-06-06T20:00:00）\n11. 星期映射：周日=0，周一=1，周二=2，周三=3，周四=4，周五=5，周六=6\n12. 回复使用中文，简洁友好，适当使用 emoji\n13. 复杂任务可连续调用多个工具（如创建任务+添加子任务+设提醒）\n14. 导入课程表文件需调用 trigger_schedule_import\n15. **「X分钟后提醒我」必须用 set_reminder 且 minutes_from_now=X，不要编造已设置**\n16. **「每天/每晚X点提醒」优先用 set_reminder(repeat=daily, time_of_day=HH:mm) 或 create_daily_reminder_task，仅写入提醒、不创建待办；只有用户明确要「每日任务/习惯打卡」时才用 create_task(repeat=daily)**\n17. 设置提醒前若 time 已过期且非 daily，必须重新计算为未来时间\n18. 用户说「记住XXX」时调用 remember_note；设置昵称/默认偏好时用 save_user_preference\n19. 回复时适当参考用户偏好（如昵称、默认优先级、常用提醒时间、进行中任务的专注记录、时段排程偏好）\n20. 用户说错过计划或专注结束时可建议「重排今日计划」\n21. 创建任务时若标题匹配复习/考试类主题且未提供 subtasks，create_task 会自动拆分模板子任务\n22. **课程作业/报告/实验类任务：必须先问清截止时间；子任务可选（用户说「无」可留空），标题含课程名或简称时自动关联课表**\n23. create_task 若返回 needMoreInfo，说明信息不足，继续追问用户后再创建\n\n## 当前数据快照\n{\n  \"taskCount\": 2,\n  \"pendingCount\": 2,\n  \"todayDeadlineCount\": 0,\n  \"courseCount\": 17,\n  \"reminderCount\": 2,\n  \"pendingTasks\": [\n    {\n      \"title\": \"完成软工作业\",\n      \"deadline\": \"2026-06-10T23:59:00.000Z\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 2\n    },\n    {\n      \"title\": \"英语六级\",\n      \"deadline\": \"2026-06-13T15:59:00.000Z\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 5\n    }\n  ],\n  \"todayCourses\": [\n    \"计算机网络\",\n    \"数据库系统\",\n    \"人工智能基础\",\n    \"信息安全技术\"\n  ]\n}"
+          },
+          {
+            "role": "user",
+            "content": "已完成每日背单词任务"
+          },
+          {
+            "role": "assistant",
+            "content": "🌟 优秀！您已经完成了今天的「每日背单词」任务。📚\n\n现在，我们可以根据您已经完成的情况，重新规划一下今天的安排。您想要继续进行其他学习任务，还是休息一下？告诉我您的想法，我会帮您调整计划。"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。"
+          },
+          {
+            "role": "user",
+            "content": "英语六级"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，我来帮您创建「英语六级」。\n\n📚 暂未在课表中匹配到对应课程。若有关联课程，创建后可在任务中补充。\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`、`下周本课程上课前`\n若暂时没有，也可以回复 **无** 或 **暂不设置**。"
+          },
+          {
+            "role": "user",
+            "content": "6.13"
+          },
+          {
+            "role": "assistant",
+            "content": "截止时间：**6月13日星期六 23:59**\n\n根据任务类型，我为您推荐了以下**子任务**：\n1. 制定复习计划\n2. 每日背单词\n3. 刷历年真题\n4. 练习听力\n5. 整理作文模板\n\n回复 **确认** 采用推荐；也可以自行列出子任务；回复 **无** 则不添加。"
+          },
+          {
+            "role": "user",
+            "content": "确认"
+          },
+          {
+            "role": "assistant",
+            "content": "✅ 已创建任务「英语六级」\n📅 截止：6月13日星期六 23:59\n📝 子任务 5 项：\n1. 制定复习计划\n2. 每日背单词\n3. 刷历年真题\n4. 练习听力\n5. 整理作文模板"
+          },
+          {
+            "role": "user",
+            "content": "明年要考研，帮我推荐一下复习计划"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，为了更好地为您制定考研复习计划，我需要了解以下信息：\n\n1. 您打算报考哪个学校和专业？\n2. 您目前的基础和目标分数是多少？\n3. 您每天可以投入学习的时间是多少？\n\n请您提供这些信息，我将为您制定一个个性化的复习计划。"
+          },
+          {
+            "role": "user",
+            "content": "我打算报考清华的计算机专业"
+          },
+          {
+            "role": "assistant",
+            "content": "了解了，您打算报考清华的计算机专业。\n\n接下来，请告诉我您目前的基础水平，以及您希望达到的目标分数是多少？\n\n此外，您每天可以投入学习的时间是多少？这将帮助我为您制定一个合理的学习计划。"
+          },
+          {
+            "role": "user",
+            "content": "目前计算机四级，希望能考过就行"
+          },
+          {
+            "role": "assistant",
+            "content": "感谢您的分享。根据您提供的信息，以下是一个初步的考研复习计划：\n\n### 复习阶段\n1. **基础阶段（现在 - 8月）**\n   - 每日学习时间：3-4小时\n   - 主要任务：\n     - 复习计算机基础知识\n     - 完成课后习题和模拟题\n\n2. **强化阶段（9月 - 11月）**\n   - 每日学习时间：4-5小时\n   - 主要任务：\n     - 深入学习计算机专业课程\n     - 每周进行一次模拟考试\n\n3. **冲刺阶段（12月 - 考试前）**\n   - 每日学习时间：5-6小时\n   - 主要任务：\n     - 复习重点和难点\n     - 每天进行全真模拟考试\n\n### 每日学习计划\n- **上午**：学习专业课程和基础知识\n- **下午**：做习题和模拟题\n- **晚上**：复习当天所学内容，准备第二天的学习\n\n### 注意事项\n- 保持良好的作息时间，保证充足的睡眠\n- 定期进行自我检测，了解自己的学习进度\n- 保持积极的心态，遇到困难及时寻求帮助\n\n这个计划是一个初步的框架，您可以根据自己的实际情况进行调整。如果您需要更详细的学习计划，请告诉我您的每日可投入学习时间，我可以为您制定更具体的计划。"
+          },
+          {
+            "role": "user",
+            "content": "你还记得我叫什么吗"
+          },
+          {
+            "role": "assistant",
+            "content": "当然记得，您是我的用户，您之前告诉我您叫李明。有什么可以帮助您的吗？🌟"
+          },
+          {
+            "role": "user",
+            "content": "我叫圈圈，今年大三"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，现在我知道了，您叫圈圈，今年是大三。有什么我可以帮您的吗？🌟"
+          },
+          {
+            "role": "user",
+            "content": "我喜欢听音乐和看电影"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，我已经记住了，您喜欢听音乐和看电影。如果您在学习之余需要放松，可以享受这些活动。如果您需要我帮助您规划与这些爱好相关的活动或者时间，随时告诉我哦。🎶🍿"
+          }
+        ]
+      },
+      {
+        "id": "1780849239594",
+        "title": "帮我安排今天",
+        "createdAt": "2026-06-07T16:20:39.594Z",
+        "updatedAt": "2026-06-07T16:25:48.527Z",
+        "messages": [
+          {
+            "id": 1780849239595.6882,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:20:39.595Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780849248878.4424,
+            "sender": "user",
+            "content": "帮我安排今天",
+            "timestamp": "2026-06-07T16:20:48.878Z"
+          },
+          {
+            "id": 1780849248884.1194,
+            "sender": "assistant",
+            "content": "📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*",
+            "timestamp": "2026-06-07T16:20:48.884Z",
+            "type": "plan",
+            "actions": [
+              {
+                "label": "开始专注",
+                "command": "开始专注：完成软工作业"
+              },
+              {
+                "label": "重排计划",
+                "command": "重排今日计划"
+              },
+              {
+                "label": "今日概览",
+                "command": "今天有什么安排"
+              }
+            ],
+            "planBlocks": [
+              {
+                "type": "suggestion",
+                "time": "16:05-16:30",
+                "startMinutes": 965,
+                "endMinutes": 990,
+                "label": "完成软工作业 · 完成项目",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成项目",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成项目",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "16:35-17:00",
+                "startMinutes": 995,
+                "endMinutes": 1020,
+                "label": "完成软工作业 · 完成分析报告",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成分析报告",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成分析报告",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "17:05-17:30",
+                "startMinutes": 1025,
+                "endMinutes": 1050,
+                "label": "英语六级 · 制定复习计划",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "制定复习计划",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 制定复习计划",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "18:45-19:10",
+                "startMinutes": 1125,
+                "endMinutes": 1150,
+                "label": "英语六级 · 每日背单词",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "每日背单词",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 每日背单词",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:15-19:40",
+                "startMinutes": 1155,
+                "endMinutes": 1180,
+                "label": "英语六级 · 刷历年真题",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "刷历年真题",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 刷历年真题",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:45-20:10",
+                "startMinutes": 1185,
+                "endMinutes": 1210,
+                "label": "英语六级 · 练习听力",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "练习听力",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 练习听力",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "20:15-20:40",
+                "startMinutes": 1215,
+                "endMinutes": 1240,
+                "label": "英语六级 · 整理作文模板",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "整理作文模板",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 整理作文模板",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 1780849307167.12,
+            "sender": "user",
+            "content": "完成子任务：完成软工作业 完成项目",
+            "timestamp": "2026-06-07T16:21:47.167Z"
+          },
+          {
+            "id": 1780849307175.723,
+            "sender": "assistant",
+            "content": "✅ 已完成「完成软工作业」的子任务「完成项目」（1/2）",
+            "timestamp": "2026-06-07T16:21:47.175Z"
+          },
+          {
+            "id": 1780849323892.0671,
+            "sender": "user",
+            "content": "完成子任务：完成软工作业 完成项目",
+            "timestamp": "2026-06-07T16:22:03.892Z"
+          },
+          {
+            "id": 1780849323901.724,
+            "sender": "assistant",
+            "content": "✅ 已完成「完成软工作业」的子任务「完成项目」（1/2）",
+            "timestamp": "2026-06-07T16:22:03.901Z"
+          },
+          {
+            "id": 1780849334332.3525,
+            "sender": "user",
+            "content": "完成子任务：完成软工作业 完成分析报告",
+            "timestamp": "2026-06-07T16:22:14.332Z"
+          },
+          {
+            "id": 1780849334341.0454,
+            "sender": "assistant",
+            "content": "✅ 已完成「完成软工作业」的子任务「完成分析报告」（2/2）",
+            "timestamp": "2026-06-07T16:22:14.341Z"
+          },
+          {
+            "id": 1780849346108.806,
+            "sender": "user",
+            "content": "重排今日计划",
+            "timestamp": "2026-06-07T16:22:26.108Z"
+          },
+          {
+            "id": 1780849346115.4106,
+            "sender": "assistant",
+            "content": "🔄 **已根据当前时间重排今日计划**\n\n📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*",
+            "timestamp": "2026-06-07T16:22:26.115Z",
+            "type": "plan",
+            "actions": [
+              {
+                "label": "开始专注",
+                "command": "开始专注：完成软工作业"
+              },
+              {
+                "label": "重排计划",
+                "command": "重排今日计划"
+              },
+              {
+                "label": "今日概览",
+                "command": "今天有什么安排"
+              }
+            ],
+            "planBlocks": [
+              {
+                "type": "suggestion",
+                "time": "16:05-16:30",
+                "startMinutes": 965,
+                "endMinutes": 990,
+                "label": "完成软工作业 · 完成项目",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成项目",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成项目",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "16:35-17:00",
+                "startMinutes": 995,
+                "endMinutes": 1020,
+                "label": "完成软工作业 · 完成分析报告",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成分析报告",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成分析报告",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "17:05-17:30",
+                "startMinutes": 1025,
+                "endMinutes": 1050,
+                "label": "英语六级 · 制定复习计划",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "制定复习计划",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 制定复习计划",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "18:45-19:10",
+                "startMinutes": 1125,
+                "endMinutes": 1150,
+                "label": "英语六级 · 每日背单词",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "每日背单词",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 每日背单词",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:15-19:40",
+                "startMinutes": 1155,
+                "endMinutes": 1180,
+                "label": "英语六级 · 刷历年真题",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "刷历年真题",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 刷历年真题",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:45-20:10",
+                "startMinutes": 1185,
+                "endMinutes": 1210,
+                "label": "英语六级 · 练习听力",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "练习听力",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 练习听力",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "20:15-20:40",
+                "startMinutes": 1215,
+                "endMinutes": 1240,
+                "label": "英语六级 · 整理作文模板",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "整理作文模板",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 整理作文模板",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 1780849356938.5732,
+            "sender": "user",
+            "content": "今天有什么安排",
+            "timestamp": "2026-06-07T16:22:36.938Z"
+          },
+          {
+            "id": 1780849356947.2192,
+            "sender": "assistant",
+            "content": "📅 **2026年6月8日星期一** · 今日概览\n\n_以下为当前数据汇总；若要按时间段排计划，请说「帮我安排今天」。_\n\n📚 今日课程（4）：\n1. 计算机网络 第1-2节\n2. 数据库系统 第3-4节\n3. 人工智能基础 第5-6节\n4. 信息安全技术 第7-8节\n\n\n✅ 待办任务（共 2 项）：\n1. 🟡 完成软工作业（2 天后截止）\n   ⬜ 完成项目\n   ⬜ 完成分析报告\n2. 🟡 英语六级（5 天后截止）\n   ⬜ 制定复习计划\n   ⬜ 每日背单词\n   ⬜ 刷历年真题\n   ⬜ 练习听力\n   ⬜ 整理作文模板\n\n\n⏰ 今日截止：无（上述待办任务的截止日期不是今天，但仍需推进）\n\n🔔 今日提醒（2）：\n- 18:30 打开学习强国\n- 21:00 进行晚点名签到\n",
+            "timestamp": "2026-06-07T16:22:36.947Z"
+          },
+          {
+            "id": 1780849372733.891,
+            "sender": "user",
+            "content": "今日简报",
+            "timestamp": "2026-06-07T16:22:52.733Z"
+          },
+          {
+            "id": 1780849372742.5283,
+            "sender": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月8日星期一\n---\n### 📊 今日概览\n📚 **课程 4 门**\n1. 计算机网络 第1-2节 @ 综合楼401\n2. 数据库系统 第3-4节 @ 二教304\n3. 人工智能基础 第5-6节 @ 信息楼105\n4. 信息安全技术 第7-8节 @ 综合楼208\n✅ **待办 2 项**\n1. 🟡 完成软工作业 ⏰2天后截止\n2. 🟡 英语六级\n🔔 **今日提醒 2 条**\n· 18:30 打开学习强国\n· 21:00 进行晚点名签到\n📈 总完成率：**0%**（0/2）\n---\n### 📋 今日安排建议\n1. **16:05-16:30** 专注「完成软工作业 · 完成项目」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n2. **16:35-17:00** 专注「完成软工作业 · 完成分析报告」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n3. **17:05-17:30** 专注「英语六级 · 制定复习计划」· 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n· 优先：**完成软工作业**（2 天后截止）\n---\n### 💡 智能建议\n· 优先处理 **完成软工作业**\n· 上午有课，可利用课间处理短任务\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*",
+            "timestamp": "2026-06-07T16:22:52.742Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780849389443.0452,
+            "sender": "user",
+            "content": "今天有什么安排",
+            "timestamp": "2026-06-07T16:23:09.443Z"
+          },
+          {
+            "id": 1780849389452.9604,
+            "sender": "assistant",
+            "content": "📅 **2026年6月8日星期一** · 今日概览\n\n_以下为当前数据汇总；若要按时间段排计划，请说「帮我安排今天」。_\n\n📚 今日课程（4）：\n1. 计算机网络 第1-2节\n2. 数据库系统 第3-4节\n3. 人工智能基础 第5-6节\n4. 信息安全技术 第7-8节\n\n\n✅ 待办任务（共 2 项）：\n1. 🟡 完成软工作业（2 天后截止）\n   ⬜ 完成项目\n   ⬜ 完成分析报告\n2. 🟡 英语六级（5 天后截止）\n   ⬜ 制定复习计划\n   ⬜ 每日背单词\n   ⬜ 刷历年真题\n   ⬜ 练习听力\n   ⬜ 整理作文模板\n\n\n⏰ 今日截止：无（上述待办任务的截止日期不是今天，但仍需推进）\n\n🔔 今日提醒（2）：\n- 18:30 打开学习强国\n- 21:00 进行晚点名签到\n",
+            "timestamp": "2026-06-07T16:23:09.452Z"
+          },
+          {
+            "id": 1780849433206.4707,
+            "sender": "user",
+            "content": "帮我安排今天",
+            "timestamp": "2026-06-07T16:23:53.206Z"
+          },
+          {
+            "id": 1780849433216.081,
+            "sender": "assistant",
+            "content": "📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*",
+            "timestamp": "2026-06-07T16:23:53.216Z",
+            "type": "plan",
+            "actions": [
+              {
+                "label": "开始专注",
+                "command": "开始专注：完成软工作业"
+              },
+              {
+                "label": "重排计划",
+                "command": "重排今日计划"
+              },
+              {
+                "label": "今日概览",
+                "command": "今天有什么安排"
+              }
+            ],
+            "planBlocks": [
+              {
+                "type": "suggestion",
+                "time": "16:05-16:30",
+                "startMinutes": 965,
+                "endMinutes": 990,
+                "label": "完成软工作业 · 完成项目",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成项目",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成项目",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "16:35-17:00",
+                "startMinutes": 995,
+                "endMinutes": 1020,
+                "label": "完成软工作业 · 完成分析报告",
+                "taskTitle": "完成软工作业",
+                "subtaskTitle": "完成分析报告",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：完成软工作业",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：完成软工作业 完成分析报告",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：完成软工作业",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "17:05-17:30",
+                "startMinutes": 1025,
+                "endMinutes": 1050,
+                "label": "英语六级 · 制定复习计划",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "制定复习计划",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 制定复习计划",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "18:45-19:10",
+                "startMinutes": 1125,
+                "endMinutes": 1150,
+                "label": "英语六级 · 每日背单词",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "每日背单词",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 每日背单词",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:15-19:40",
+                "startMinutes": 1155,
+                "endMinutes": 1180,
+                "label": "英语六级 · 刷历年真题",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "刷历年真题",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 刷历年真题",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "19:45-20:10",
+                "startMinutes": 1185,
+                "endMinutes": 1210,
+                "label": "英语六级 · 练习听力",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "练习听力",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 练习听力",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              },
+              {
+                "type": "suggestion",
+                "time": "20:15-20:40",
+                "startMinutes": 1215,
+                "endMinutes": 1240,
+                "label": "英语六级 · 整理作文模板",
+                "taskTitle": "英语六级",
+                "subtaskTitle": "整理作文模板",
+                "duration": 25,
+                "detail": "专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）",
+                "actions": [
+                  {
+                    "label": "开始专注",
+                    "command": "开始专注：英语六级",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "标记完成",
+                    "command": "完成子任务：英语六级 整理作文模板",
+                    "actionType": "command"
+                  },
+                  {
+                    "label": "推迟30分",
+                    "command": "推迟计划：英语六级",
+                    "actionType": "command"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 1780849444411.1628,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:24:04.411Z"
+          },
+          {
+            "id": 1780849444421.0696,
+            "sender": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。",
+            "timestamp": "2026-06-07T16:24:04.421Z"
+          },
+          {
+            "id": 1780849447096.1365,
+            "sender": "user",
+            "content": "开始专注",
+            "timestamp": "2026-06-07T16:24:07.096Z"
+          },
+          {
+            "id": 1780849447108.7827,
+            "sender": "assistant",
+            "content": "好的，我来帮您创建「开始专注」。\n\n📚 暂未在课表中匹配到对应课程。若有关联课程，创建后可在任务中补充。\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`、`下周本课程上课前`\n若暂时没有，也可以回复 **无** 或 **暂不设置**。",
+            "timestamp": "2026-06-07T16:24:07.108Z"
+          },
+          {
+            "id": 1780849480997.8486,
+            "sender": "user",
+            "content": "列出所有提醒",
+            "timestamp": "2026-06-07T16:24:40.997Z"
+          },
+          {
+            "id": 1780849481018.1162,
+            "sender": "assistant",
+            "content": "🔔 **全部提醒**\n---\n### 每日提醒（2）\n1. **打开学习强国** · 每天 18:30（下次：2026/6/8 18:30:00）\n2. **进行晚点名签到** · 每天 21:00（下次：2026/6/8 21:00:00）\n---\n*在「日历 → 全部提醒」可编辑标题与时间。*",
+            "timestamp": "2026-06-07T16:24:41.018Z",
+            "actions": [
+              {
+                "label": "打开日历",
+                "command": "切换日历"
+              }
+            ]
+          },
+          {
+            "id": 1780849485474.3853,
+            "sender": "user",
+            "content": "切换日历",
+            "timestamp": "2026-06-07T16:24:45.474Z"
+          },
+          {
+            "id": 1780849485489.405,
+            "sender": "assistant",
+            "content": "📅 已切换到日历视图，可点击「全部提醒」管理提醒。",
+            "timestamp": "2026-06-07T16:24:45.489Z"
+          },
+          {
+            "id": 1780849504276.098,
+            "sender": "user",
+            "content": "本周复盘",
+            "timestamp": "2026-06-07T16:25:04.276Z"
+          },
+          {
+            "id": 1780849504292.455,
+            "sender": "assistant",
+            "content": "📊 **本周复盘**\n---\n✅ 本周完成 **0** 项任务\n📋 当前待办 **2** 项\n⚠️ 已过期 **0** 项\n🍅 累计专注 **0** 次\n---\n---\n*数据来自当前账号本地统计；联网时可让助手进一步分析。*",
+            "timestamp": "2026-06-07T16:25:04.292Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780849544087.106,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:25:44.087Z"
+          },
+          {
+            "id": 1780849544101.6763,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。",
+            "timestamp": "2026-06-07T16:25:44.101Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "assistant",
+            "content": "📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*"
+          },
+          {
+            "role": "assistant",
+            "content": "🔄 **已根据当前时间重排今日计划**\n\n📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*"
+          },
+          {
+            "role": "user",
+            "content": "今天有什么安排"
+          },
+          {
+            "role": "assistant",
+            "content": "📅 **2026年6月8日星期一** · 今日概览\n\n_以下为当前数据汇总；若要按时间段排计划，请说「帮我安排今天」。_\n\n📚 今日课程（4）：\n1. 计算机网络 第1-2节\n2. 数据库系统 第3-4节\n3. 人工智能基础 第5-6节\n4. 信息安全技术 第7-8节\n\n\n✅ 待办任务（共 2 项）：\n1. 🟡 完成软工作业（2 天后截止）\n   ⬜ 完成项目\n   ⬜ 完成分析报告\n2. 🟡 英语六级（5 天后截止）\n   ⬜ 制定复习计划\n   ⬜ 每日背单词\n   ⬜ 刷历年真题\n   ⬜ 练习听力\n   ⬜ 整理作文模板\n\n\n⏰ 今日截止：无（上述待办任务的截止日期不是今天，但仍需推进）\n\n🔔 今日提醒（2）：\n- 18:30 打开学习强国\n- 21:00 进行晚点名签到\n"
+          },
+          {
+            "role": "user",
+            "content": "今日简报"
+          },
+          {
+            "role": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月8日星期一\n---\n### 📊 今日概览\n📚 **课程 4 门**\n1. 计算机网络 第1-2节 @ 综合楼401\n2. 数据库系统 第3-4节 @ 二教304\n3. 人工智能基础 第5-6节 @ 信息楼105\n4. 信息安全技术 第7-8节 @ 综合楼208\n✅ **待办 2 项**\n1. 🟡 完成软工作业 ⏰2天后截止\n2. 🟡 英语六级\n🔔 **今日提醒 2 条**\n· 18:30 打开学习强国\n· 21:00 进行晚点名签到\n📈 总完成率：**0%**（0/2）\n---\n### 📋 今日安排建议\n1. **16:05-16:30** 专注「完成软工作业 · 完成项目」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n2. **16:35-17:00** 专注「完成软工作业 · 完成分析报告」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n3. **17:05-17:30** 专注「英语六级 · 制定复习计划」· 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n· 优先：**完成软工作业**（2 天后截止）\n---\n### 💡 智能建议\n· 优先处理 **完成软工作业**\n· 上午有课，可利用课间处理短任务\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*"
+          },
+          {
+            "role": "user",
+            "content": "今天有什么安排"
+          },
+          {
+            "role": "assistant",
+            "content": "📅 **2026年6月8日星期一** · 今日概览\n\n_以下为当前数据汇总；若要按时间段排计划，请说「帮我安排今天」。_\n\n📚 今日课程（4）：\n1. 计算机网络 第1-2节\n2. 数据库系统 第3-4节\n3. 人工智能基础 第5-6节\n4. 信息安全技术 第7-8节\n\n\n✅ 待办任务（共 2 项）：\n1. 🟡 完成软工作业（2 天后截止）\n   ⬜ 完成项目\n   ⬜ 完成分析报告\n2. 🟡 英语六级（5 天后截止）\n   ⬜ 制定复习计划\n   ⬜ 每日背单词\n   ⬜ 刷历年真题\n   ⬜ 练习听力\n   ⬜ 整理作文模板\n\n\n⏰ 今日截止：无（上述待办任务的截止日期不是今天，但仍需推进）\n\n🔔 今日提醒（2）：\n- 18:30 打开学习强国\n- 21:00 进行晚点名签到\n"
+          },
+          {
+            "role": "assistant",
+            "content": "📋 **夜深了！为您安排的今日计划**\n📅 2026年6月8日星期一\n---\n### ⏰ 时间线\n1. 💡 **提示** 当前较早，以下计划从 08:00 起算\n2. 📚 **08:00-09:35** 计算机网络 · 第1-2节\n3. 📚 **09:50-11:25** 数据库系统 · 第3-4节\n4. 📚 **11:30-14:15** 人工智能基础 · 第5-6节\n5. 📚 **14:20-16:05** 信息安全技术 · 第7-8节\n6. ✅ **16:05-16:30** 专注「完成软工作业 · 完成项目」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n7. ✅ **16:35-17:00** 专注「完成软工作业 · 完成分析报告」 · 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n8. ✅ **17:05-17:30** 专注「英语六级 · 制定复习计划」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n9. 🔔 **18:30** 打开学习强国 · 到点提醒\n10. ✅ **18:45-19:10** 专注「英语六级 · 每日背单词」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n11. ✅ **19:15-19:40** 专注「英语六级 · 刷历年真题」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n12. ✅ **19:45-20:10** 专注「英语六级 · 练习听力」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n13. ✅ **20:15-20:40** 专注「英语六级 · 整理作文模板」 · 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n14. 🔔 **21:00** 进行晚点名签到 · 到点提醒\n---\n💡 **助手建议**：优先推进「完成软工作业」（2 天后截止）\n---\n*今日 4 门课；已为您排入 7 段专注时间。说「开始专注」即可执行。*"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。"
+          },
+          {
+            "role": "user",
+            "content": "开始专注"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，我来帮您创建「开始专注」。\n\n📚 暂未在课表中匹配到对应课程。若有关联课程，创建后可在任务中补充。\n\n请问这项任务的**截止时间**是什么时候？\n例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`、`下周本课程上课前`\n若暂时没有，也可以回复 **无** 或 **暂不设置**。"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。"
+          }
+        ]
+      },
+      {
+        "id": "1780849548528",
+        "title": "创建任务",
+        "createdAt": "2026-06-07T16:25:48.528Z",
+        "updatedAt": "2026-06-07T16:25:55.578Z",
+        "messages": [
+          {
+            "id": 1780849548529.8088,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:25:48.529Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780849549629.0076,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:25:49.629Z"
+          },
+          {
+            "id": 1780849549632.1616,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。",
+            "timestamp": "2026-06-07T16:25:49.632Z"
+          },
+          {
+            "id": 1780849553581.0386,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:25:53.581Z"
+          },
+          {
+            "id": 1780849553585.5972,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。",
+            "timestamp": "2026-06-07T16:25:53.585Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。"
+          },
+          {
+            "role": "user",
+            "content": "创建任务"
+          },
+          {
+            "role": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。"
+          }
+        ]
+      },
+      {
+        "id": "1780849555579",
+        "title": "创建任务",
+        "createdAt": "2026-06-07T16:25:55.579Z",
+        "updatedAt": "2026-06-07T16:38:50.423Z",
+        "messages": [
+          {
+            "id": 1780849748609,
+            "sender": "assistant",
+            "content": "🌅 **夜深了！这是您的今日简报**\n📅 2026年6月8日星期一\n---\n### 📊 今日概览\n📚 **课程 4 门**\n1. 计算机网络 第1-2节 @ 综合楼401\n2. 数据库系统 第3-4节 @ 二教304\n3. 人工智能基础 第5-6节 @ 信息楼105\n4. 信息安全技术 第7-8节 @ 综合楼208\n✅ **待办 2 项**\n1. 🟡 完成软工作业 ⏰2天后截止\n2. 🟡 英语六级\n🔔 **今日提醒 2 条**\n· 18:30 打开学习强国\n· 21:00 进行晚点名签到\n📈 总完成率：**0%**（0/2）\n---\n### 📋 今日安排建议\n1. **16:05-16:30** 专注「完成软工作业 · 完成项目」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n2. **16:35-17:00** 专注「完成软工作业 · 完成分析报告」· 专注 25 分钟 · 约 2 🍅 · 距截止 2 天，建议每天 1 个番茄（约 25 分钟）\n3. **17:05-17:30** 专注「英语六级 · 制定复习计划」· 专注 25 分钟 · 约 5 🍅 · 距截止 5 天，建议每天 1 个番茄（约 25 分钟）\n· 优先：**完成软工作业**（2 天后截止）\n---\n### 💡 智能建议\n· 优先处理 **完成软工作业**\n· 上午有课，可利用课间处理短任务\n---\n*我是您的学习助手——说「帮我安排今天」获取完整计划，或让我帮您创建任务、开始专注。*",
+            "timestamp": "2026-06-07T16:29:08.609Z",
+            "type": "briefing"
+          },
+          {
+            "id": 1780849555580.7312,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:25:55.580Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780849556281.9663,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:25:56.281Z"
+          },
+          {
+            "id": 1780849556284.551,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。",
+            "timestamp": "2026-06-07T16:25:56.284Z"
+          },
+          {
+            "id": 1780849584084.0208,
+            "sender": "user",
+            "content": "开始专注",
+            "timestamp": "2026-06-07T16:26:24.084Z"
+          },
+          {
+            "id": 1780849584089.517,
+            "sender": "assistant",
+            "content": "我没有识别到有效的截止时间，请再说一次，例如：`6月12日`、`下周五 18:00`、`下周三晚上19点`；若暂不设置可回复 **无**。",
+            "timestamp": "2026-06-07T16:26:24.089Z"
+          },
+          {
+            "id": 1780849752681.6584,
+            "sender": "user",
+            "content": "创建任务",
+            "timestamp": "2026-06-07T16:29:12.681Z"
+          },
+          {
+            "id": 1780849752691.0046,
+            "sender": "assistant",
+            "content": "好的，请告诉我**任务标题**是什么？\n\n如果是课程作业，可以直接说「完成软件工程作业」这类描述，我会帮您关联课表、设置截止时间和子任务。",
+            "timestamp": "2026-06-07T16:29:12.691Z"
+          },
+          {
+            "id": 1780849755411.4355,
+            "sender": "user",
+            "content": "开始专注",
+            "timestamp": "2026-06-07T16:29:15.411Z"
+          },
+          {
+            "id": 1780849755419.798,
+            "sender": "assistant",
+            "content": "🎯 您有 2 个待办任务，请在弹窗中选择要专注的任务",
+            "timestamp": "2026-06-07T16:29:15.419Z"
+          },
+          {
+            "id": 1780849762790.0327,
+            "sender": "user",
+            "content": "开始专注",
+            "timestamp": "2026-06-07T16:29:22.790Z"
+          },
+          {
+            "id": 1780849762797.2368,
+            "sender": "assistant",
+            "content": "🎯 您有 2 个待办任务，请在弹窗中选择要专注的任务",
+            "timestamp": "2026-06-07T16:29:22.797Z"
+          },
+          {
+            "id": 1780849884936.8796,
+            "sender": "user",
+            "content": "明天中午十二点要开会",
+            "timestamp": "2026-06-07T16:31:24.936Z"
+          },
+          {
+            "id": 1780849887168.553,
+            "sender": "assistant",
+            "content": "好的，您需要我设置一个提醒吗？",
+            "timestamp": "2026-06-07T16:31:27.168Z"
+          },
+          {
+            "id": 1780849893128.4067,
+            "sender": "user",
+            "content": "需要",
+            "timestamp": "2026-06-07T16:31:33.128Z"
+          },
+          {
+            "id": 1780849898324.6062,
+            "sender": "assistant",
+            "content": "已设置提醒「明天中午十二点开会」。",
+            "timestamp": "2026-06-07T16:31:38.324Z"
+          },
+          {
+            "id": 1780850231817.6035,
+            "sender": "user",
+            "content": "删除明天的开会提醒",
+            "timestamp": "2026-06-07T16:37:11.817Z"
+          },
+          {
+            "id": 1780850231824.1055,
+            "sender": "assistant",
+            "content": "❌ 未找到任务「明天的开会提醒」",
+            "timestamp": "2026-06-07T16:37:11.824Z"
+          },
+          {
+            "id": 1780850271075.0156,
+            "sender": "user",
+            "content": "关闭明天开会的提醒",
+            "timestamp": "2026-06-07T16:37:51.075Z"
+          },
+          {
+            "id": 1780850271086.583,
+            "sender": "assistant",
+            "content": "🔔 已设置提醒「关闭开会的」，将在 **2026/6/9 23:59:00** 提醒您。",
+            "timestamp": "2026-06-07T16:37:51.086Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "system",
+            "content": "你是「智能TODO清单」的 AI **学习助手**，可以通过调用工具帮用户管理任务、课表、日历提醒和专注计时，并主动帮用户规划时间。\n\n当前时间：2026年6月8日星期一 00:31\n\n## 用户偏好与记忆\n默认专注时长：25 分钟\n默认任务优先级：medium\n22:00 后不安排提醒\n本会话近期：assistant: 🎯 您有 2 个待办任务，请在弹窗中选择要专注的任务\nuser: 开始专注\nassistant: 🎯 您有 2 个待办任务，请在弹窗中选择要专注的任务\nuser: 明天中午十二点要开会\nassistant: 好的，您需要我设置一个提醒吗？\nuser: 需要\n\n## 你的能力\n- 创建/编辑/删除/完成任务及子任务\n- 管理课程表（添加/删除/查询课程）\n- 设置和删除提醒\n- 启动专注模式（番茄钟）\n- 查看统计数据和今日安排\n- **智能排程、自动重排（重排今日计划）与主动跟进**\n- 创建任务时自动匹配子任务模板（六级/考研/论文等）\n- 切换应用视图\n\n## 助手工作原则\n1. 语气像贴心助手：主动、简洁、有优先级意识，不说空话\n2. 用户问「怎么安排」「今日计划」「帮我规划」→ 必须调用 suggest_daily_plan\n3. 需要了解是否该主动提醒时 → 调用 get_secretary_nudges\n4. 理解用户的自然语言意图，选择合适的工具执行操作\n5. **查询今日安排、今天有什么任务/课时，必须先调用 get_today_schedule 工具，严禁不查数据就回答**\n6. **pendingTasks = 全部未完成待办；tasksDueToday = 仅今天截止的任务。两者完全不同，禁止混用**\n7. **若 pendingTaskCount > 0，绝不可说「待办为空」；若 tasksDueTodayCount = 0，应说「今日无截止任务」而非「没有待办」**\n8. 需要操作数据时，优先调用工具，不要编造结果\n9. 涉及删除等破坏性操作时，若用户意图明确则直接执行\n10. 日期时间请转换为 ISO 8601 格式传给工具（如 2026-06-06T20:00:00）\n11. 星期映射：周日=0，周一=1，周二=2，周三=3，周四=4，周五=5，周六=6\n12. 回复使用中文，简洁友好，适当使用 emoji\n13. 复杂任务可连续调用多个工具（如创建任务+添加子任务+设提醒）\n14. 导入课程表文件需调用 trigger_schedule_import\n15. **「X分钟后提醒我」必须用 set_reminder 且 minutes_from_now=X，不要编造已设置**\n16. **「每天/每晚X点提醒」优先用 set_reminder(repeat=daily, time_of_day=HH:mm) 或 create_daily_reminder_task，仅写入提醒、不创建待办；只有用户明确要「每日任务/习惯打卡」时才用 create_task(repeat=daily)**\n17. 设置提醒前若 time 已过期且非 daily，必须重新计算为未来时间\n18. 用户说「记住XXX」时调用 remember_note；设置昵称/默认偏好时用 save_user_preference\n19. 回复时适当参考用户偏好（如昵称、默认优先级、常用提醒时间、进行中任务的专注记录、时段排程偏好）\n20. 用户说错过计划或专注结束时可建议「重排今日计划」\n21. 创建任务时若标题匹配复习/考试类主题且未提供 subtasks，create_task 会自动拆分模板子任务\n22. **课程作业/报告/实验类任务：必须先问清截止时间；子任务可选（用户说「无」可留空），标题含课程名或简称时自动关联课表**\n23. create_task 若返回 needMoreInfo，说明信息不足，继续追问用户后再创建\n\n## 当前数据快照\n{\n  \"taskCount\": 2,\n  \"pendingCount\": 2,\n  \"todayDeadlineCount\": 0,\n  \"courseCount\": 17,\n  \"reminderCount\": 2,\n  \"pendingTasks\": [\n    {\n      \"title\": \"完成软工作业\",\n      \"deadline\": \"2026-06-10T23:59:00.000Z\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 2\n    },\n    {\n      \"title\": \"英语六级\",\n      \"deadline\": \"2026-06-13T15:59:00.000Z\",\n      \"priority\": \"medium\",\n      \"subtaskCount\": 5\n    }\n  ],\n  \"todayCourses\": [\n    \"计算机网络\",\n    \"数据库系统\",\n    \"人工智能基础\",\n    \"信息安全技术\"\n  ]\n}"
+          },
+          {
+            "role": "user",
+            "content": "明天中午十二点要开会"
+          },
+          {
+            "role": "assistant",
+            "content": "好的，您需要我设置一个提醒吗？"
+          },
+          {
+            "role": "user",
+            "content": "需要"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"title\": \"明天中午十二点开会\", \"time\": \"2026-06-09T12:00:00\"}",
+                  "name": "set_reminder"
+                },
+                "id": "call_-7557147377111394921",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "content": "{\"success\":true,\"message\":\"已设置提醒「明天中午十二点开会」\",\"reminder\":{\"title\":\"明天中午十二点开会\",\"time\":\"2026/6/9 12:00:00\",\"repeat\":\"none\"}}",
+            "tool_call_id": "call_-7557147377111394921"
+          },
+          {
+            "role": "assistant",
+            "content": "已设置提醒「明天中午十二点开会」。"
+          },
+          {
+            "role": "user",
+            "content": "删除明天的开会提醒"
+          },
+          {
+            "role": "assistant",
+            "content": "❌ 未找到任务「明天的开会提醒」"
+          },
+          {
+            "role": "user",
+            "content": "关闭明天开会的提醒"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置提醒「关闭开会的」，将在 **2026/6/9 23:59:00** 提醒您。"
+          }
+        ]
+      },
+      {
+        "id": "1780850330424",
+        "title": "关闭明天开会的提醒",
+        "createdAt": "2026-06-07T16:38:50.424Z",
+        "updatedAt": "2026-06-07T16:45:26.910Z",
+        "messages": [
+          {
+            "id": 1780850330426.343,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:38:50.426Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780850490771.8362,
+            "sender": "user",
+            "content": "关闭明天开会的提醒",
+            "timestamp": "2026-06-07T16:41:30.771Z"
+          },
+          {
+            "id": 1780850490776.1233,
+            "sender": "assistant",
+            "content": "确定删除提醒「闭明天开会的」吗？",
+            "timestamp": "2026-06-07T16:41:30.776Z",
+            "confirm": {
+              "confirmCommand": "确认删除提醒：闭明天开会的",
+              "cancelCommand": "取消"
+            }
+          },
+          {
+            "id": 1780850495957.4194,
+            "sender": "user",
+            "content": "确认删除提醒：闭明天开会的",
+            "timestamp": "2026-06-07T16:41:35.957Z"
+          },
+          {
+            "id": 1780850495964.16,
+            "sender": "assistant",
+            "content": "✅ 已删除提醒 「开会」",
+            "timestamp": "2026-06-07T16:41:35.964Z"
+          },
+          {
+            "id": 1780850522438.6045,
+            "sender": "user",
+            "content": "明天中午十二点提醒我要开会",
+            "timestamp": "2026-06-07T16:42:02.438Z"
+          },
+          {
+            "id": 1780850522446.136,
+            "sender": "assistant",
+            "content": "🔔 已设置提醒「开会」，将在 **2026/6/9 12:00:00** 提醒您。",
+            "timestamp": "2026-06-07T16:42:02.446Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "user",
+            "content": "明天中午十二点提醒我要开会"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置提醒「开会」，将在 **2026/6/9 12:00:00** 提醒您。"
+          }
+        ]
+      },
+      {
+        "id": "1780850726912",
+        "title": "明天中午十二点提醒我要开会",
+        "createdAt": "2026-06-07T16:45:26.912Z",
+        "updatedAt": "2026-06-07T17:18:46.210Z",
+        "messages": [
+          {
+            "id": 1780850726914.1992,
+            "sender": "assistant",
+            "content": "👋 您好！我是您的**学习助手**。\n\n我会结合课表、待办和您的习惯，帮您：\n- **安排今日计划**（说「帮我安排今天」）\n- 创建/管理任务和提醒\n- 在合适的时间提醒您专注\n- 主动跟进截止日与未完成任务\n\n试试说：「帮我安排今天」或「创建一个高数复习任务，周五截止」",
+            "timestamp": "2026-06-07T16:45:26.914Z",
+            "actions": [
+              {
+                "label": "帮我安排今天",
+                "command": "帮我安排今天"
+              },
+              {
+                "label": "今日简报",
+                "command": "今日简报"
+              }
+            ]
+          },
+          {
+            "id": 1780850729253.2551,
+            "sender": "user",
+            "content": "明天中午十二点提醒我要开会",
+            "timestamp": "2026-06-07T16:45:29.253Z"
+          },
+          {
+            "id": 1780850729260.8433,
+            "sender": "assistant",
+            "content": "🔔 已设置提醒「开会」，将在 **2026/6/9 12:00:00** 提醒您。",
+            "timestamp": "2026-06-07T16:45:29.260Z"
+          },
+          {
+            "id": 1780850833876.0332,
+            "sender": "user",
+            "content": "每周三晚上五点半提醒我要值班",
+            "timestamp": "2026-06-07T16:47:13.876Z"
+          },
+          {
+            "id": 1780850833888.7864,
+            "sender": "assistant",
+            "content": "🔔 已设置提醒「每周要值班」，将在 **2026/6/10 17:30:00** 提醒您。",
+            "timestamp": "2026-06-07T16:47:13.888Z"
+          },
+          {
+            "id": 1780850833894.6406,
+            "sender": "assistant",
+            "content": "🧠 已记住：每周三晚上五点半提醒我要值班",
+            "timestamp": "2026-06-07T16:47:13.894Z"
+          },
+          {
+            "id": 1780851005299.5083,
+            "sender": "user",
+            "content": "关闭值班提醒",
+            "timestamp": "2026-06-07T16:50:05.299Z"
+          },
+          {
+            "id": 1780851005307.7324,
+            "sender": "assistant",
+            "content": "确定关闭提醒「值班」吗？",
+            "timestamp": "2026-06-07T16:50:05.307Z",
+            "confirm": {
+              "confirmCommand": "确认删除提醒：值班",
+              "cancelCommand": "取消"
+            }
+          },
+          {
+            "id": 1780851007940.4106,
+            "sender": "user",
+            "content": "确认删除提醒：值班",
+            "timestamp": "2026-06-07T16:50:07.940Z"
+          },
+          {
+            "id": 1780851007947.0725,
+            "sender": "assistant",
+            "content": "✅ 已关闭提醒 「每周要值班」",
+            "timestamp": "2026-06-07T16:50:07.947Z"
+          },
+          {
+            "id": 1780851019621.5488,
+            "sender": "user",
+            "content": "每周三晚上五点半提醒我要值班",
+            "timestamp": "2026-06-07T16:50:19.622Z"
+          },
+          {
+            "id": 1780851019630.4392,
+            "sender": "assistant",
+            "content": "🔔 已设置提醒「每周要值班」，将在 **2026/6/10 17:30:00** 提醒您。",
+            "timestamp": "2026-06-07T16:50:19.630Z"
+          },
+          {
+            "id": 1780851045359.5137,
+            "sender": "user",
+            "content": "关闭值班提醒",
+            "timestamp": "2026-06-07T16:50:45.359Z"
+          },
+          {
+            "id": 1780851045367.435,
+            "sender": "assistant",
+            "content": "确定关闭提醒「值班」吗？",
+            "timestamp": "2026-06-07T16:50:45.367Z",
+            "confirm": {
+              "confirmCommand": "确认删除提醒：值班",
+              "cancelCommand": "取消"
+            }
+          },
+          {
+            "id": 1780851046235.8467,
+            "sender": "user",
+            "content": "确认删除提醒：值班",
+            "timestamp": "2026-06-07T16:50:46.235Z"
+          },
+          {
+            "id": 1780851046243.7454,
+            "sender": "assistant",
+            "content": "✅ 已关闭提醒 「每周要值班」",
+            "timestamp": "2026-06-07T16:50:46.243Z"
+          },
+          {
+            "id": 1780851058010.5767,
+            "sender": "user",
+            "content": "每周三晚上五点半提醒我要值班",
+            "timestamp": "2026-06-07T16:50:58.010Z"
+          },
+          {
+            "id": 1780851058018.0444,
+            "sender": "assistant",
+            "content": "🔔 已设置每周提醒「每周要值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）",
+            "timestamp": "2026-06-07T16:50:58.018Z"
+          },
+          {
+            "id": 1780852713081.745,
+            "sender": "user",
+            "content": "关闭值班提醒",
+            "timestamp": "2026-06-07T17:18:33.081Z"
+          },
+          {
+            "id": 1780852713088.1,
+            "sender": "assistant",
+            "content": "确定关闭提醒「值班」吗？",
+            "timestamp": "2026-06-07T17:18:33.088Z",
+            "confirm": {
+              "confirmCommand": "确认删除提醒：值班",
+              "cancelCommand": "取消"
+            }
+          },
+          {
+            "id": 1780852714997.482,
+            "sender": "user",
+            "content": "确认删除提醒：值班",
+            "timestamp": "2026-06-07T17:18:34.997Z"
+          },
+          {
+            "id": 1780852715010.7246,
+            "sender": "assistant",
+            "content": "✅ 已关闭提醒 「每周要值班」",
+            "timestamp": "2026-06-07T17:18:35.010Z"
+          },
+          {
+            "id": 1780852726198.3826,
+            "sender": "user",
+            "content": "每周三晚上五点半提醒我要值班",
+            "timestamp": "2026-06-07T17:18:46.198Z"
+          },
+          {
+            "id": 1780852726207.701,
+            "sender": "assistant",
+            "content": "🔔 已设置每周提醒「值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）",
+            "timestamp": "2026-06-07T17:18:46.207Z"
+          }
+        ],
+        "apiMessages": [
+          {
+            "role": "user",
+            "content": "明天中午十二点提醒我要开会"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置提醒「开会」，将在 **2026/6/9 12:00:00** 提醒您。"
+          },
+          {
+            "role": "user",
+            "content": "每周三晚上五点半提醒我要值班"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置提醒「每周要值班」，将在 **2026/6/10 17:30:00** 提醒您。"
+          },
+          {
+            "role": "user",
+            "content": "每周三晚上五点半提醒我要值班"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置提醒「每周要值班」，将在 **2026/6/10 17:30:00** 提醒您。"
+          },
+          {
+            "role": "user",
+            "content": "每周三晚上五点半提醒我要值班"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置每周提醒「每周要值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）"
+          },
+          {
+            "role": "user",
+            "content": "每周三晚上五点半提醒我要值班"
+          },
+          {
+            "role": "assistant",
+            "content": "🔔 已设置每周提醒「值班」\n\n每周**周三 17:30** 到点提醒您（下次：2026/6/10 17:30:00）"
+          }
+        ]
+      }
+    ],
+    "firstWeekDate": "2026-03-02"
+  }
+}
